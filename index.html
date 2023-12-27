@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTT Music Show Booking Ticket</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="shortcut icon" href="images/fav icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="menu">
+        <div class="logo">
+            <a href="#">
+                <img src="images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul>
+            <li class="active"><a href="#"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fa fa-music"></i>Music Shows</a>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="#">Concert</a></li>
+                        <li><a href="#">Live Band</a></li>
+                        <li><a href="#">Choir</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#"><i class="fa fa-hand-o-up"></i>Booking Now</a></li>
+            <li><a href="#"><i class="fa fa-user"></i>About Us</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i>Contact Us</a></li>
+            <li>
+                <a href="./loginform.html" class="btn btn-hover">
+                    <span>Log in</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- music shows selection -->
+    <div class="music-shows-selection">
+        <div class="music-slide">
+        <div class="owl-carousel carousel-nav-center" id="music-carousel">
+            <!-- Slide Item 1 -->
+            <div class="music-slide-item">
+                <img src="./images/blackpinkconcert.jpg" alt="">
+                <div class="overlay"></div>
+                <div class="music-slide-item-content">
+                    <div class="item-content-wraper">
+                        <div class="item-content-tittle top-down">
+                            BLACKPINK CONCERT
+                        </div>
+                        <div class="item-content-description top-down delay-2">
+                            The BLACKPINK World Tour Concert is a heart-pounding experience featuring the extraordinary talents of Jisoo, Jennie, Rosé, and Lisa—four brilliant female idols who come together to deliver a performance brimming with energy and passion.
+                        </div>
+                        <div class="item-action top-down delay-4">
+                            <a href="#" class="btn btn-hover">
+                                <i class="bx bxs-right-arrow"></i>
+                                <span>MORE INFO</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Slide Item 1 -->
+
+            <!-- Slide Item 2 -->
+            <div class="music-slide-item">
+                <div class="maneskin">
+                    <img src="./images/maneskinliveband.jpg" alt="">
+                </div>
+                <div class="overlay"></div>
+                <div class="music-slide-item-content">
+                    <div class="item-content-wraper">
+                        <div class="item-content-tittle top-down">
+                            MÅNESKIN LIVE BAND
+                        </div>
+                        <div class="item-content-description top-down delay-2">
+                            MÅNESKIN is an Italian rock band renowned for their intense and energetic live performances. Combining rock, pop, and electronic elements, they deliver a passionate and dynamic musical experience. Don't miss the chance to witness the allure of rock in their unmissable live shows!
+                        </div>
+                        <div class="item-action top-down delay-4">
+                            <a href="#" class="btn btn-hover">
+                                <i class="bx bxs-right-arrow"></i>
+                                <span>MORE INFO</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Slide Item 2 -->
+
+            <!-- Slide Item 3 -->
+            <div class="music-slide-item">
+                <div class="vienna">
+                    <img src="./images/viennaboyschoir.jpg" alt="">
+                </div>
+                <div class="overlay"></div>
+                <div class="music-slide-item-content">
+                    <div class="item-content-wraper">
+                        <div class="item-content-tittle top-down">
+                            VIENNA BOYS' CHOIR
+                        </div>
+                        <div class="item-content-description top-down delay-2">
+                            The Vienna Boys' Choir, established in 1498, is one of the world's oldest choirs. Renowned for their exceptional musical talent and captivating voices, this Austrian choir presents a timeless and unique musical tradition. An unmissable journey into music!
+                        </div>
+                        <div class="item-action top-down delay-4">
+                            <a href="#" class="btn btn-hover">
+                                <i class="bx bxs-right-arrow"></i>
+                                <span>MORE INFO</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Slide Item 3 -->
+        </div>
+        </div>
+    </div>
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!--OWL CAROUSEL-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--js-->
+    <script src="./JS/index.js"></script>
+</body>
+</html>
+

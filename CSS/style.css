@@ -1,0 +1,277 @@
+:root {
+    --main-color: #c0392b;
+    --space-top: 30px;
+}
+
+*{
+    padding:0;
+    margin: 0;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: rgb(0, 0, 28);
+}
+
+.menu{
+    background:black;
+    text-align:center;
+    text-transform: uppercase;
+}
+
+.logo{
+    display:inline-block;
+    margin:15px;
+    vertical-align: middle;
+    margin-right:100px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto; 
+}
+
+.menu ul{
+    display: inline-flex;
+    list-style: none;
+    color: #fff;
+}
+
+.menu ul li{
+    width: 140px;
+    margin: 10px;
+    padding: 15px;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.active, .menu ul li:hover {
+    border-radius: 3px;
+}
+
+.menu .fa{
+    margin-right: 8px;
+}
+
+.submenu{
+    display: none;
+    z-index: 999;
+}
+
+.menu ul li:hover .submenu{
+    display: block;
+    position: absolute;
+    background: black;
+    margin-top: 15px;
+    margin-left:-15px;
+}
+
+.menu ul li:hover .submenu ul{
+    display: block;
+    margin: 10px;
+}
+
+.menu ul li:hover .submenu ul li{
+    width: 75px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+}
+
+.menu ul li:hover .submenu ul li:last-child{
+    border-bottom:none;
+}
+
+.menu a:hover {
+    color: #1E90FF;
+}
+
+.menu a.btn:hover,.menu .logo:hover{
+    color: unset;
+}
+
+.btn{
+    color: #ffffff;
+    padding:.25rem 1.5rem;
+    font-weight: 700;
+    display:inline-flex;
+    position: relative;
+    align-items: center;
+    margin-top: 1px;
+    text-decoration: none;
+}
+
+.btn-hover::before {
+    z-index: 1;
+    content: "";
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--main-color);
+    transition: .3s ease-in-out;
+    text-align: center;
+}
+
+.btn-hover:hover::before{
+    width:100%;
+}
+
+.btn i,
+.btn span{
+    z-index: 1;
+}
+
+.btn i{
+    margin-right: 1rem;
+}
+
+
+.music-slide-item{
+    padding-top: 40%;
+    position: relative;
+    overflow: hidden;
+}
+
+.music-slide-item img {
+    width: 20%;
+    position: absolute;
+    top: -100px;
+    left: 300px;
+}
+
+.maneskin{
+    width: 60%;
+    position: absolute;
+    top: 0px;
+    left: 300px;
+}
+
+.vienna{
+    width: 75%;
+    position: absolute;
+    top: 10px;
+    left: 300px;
+}   
+
+.music-slide-item-content {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+}
+
+.item-content-wraper {
+    padding-left: 5rem;
+    width : 40%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.item-content-wraper::before {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.8),rgba(0,0,0,0));
+}
+
+.item-content-tittle {
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: 900;
+}
+
+.item-content-description{
+    font-size: 1.00rem;
+    margin-top: var(--space-top);
+    line-height: 1.5rem;
+}
+
+.item-action{
+    margin-top: var(--space-top);
+}
+
+.carousel-nav-center{
+    position: relative;
+}
+
+.carousel-nav-center .owl-nav button i{
+    font-size: 2rem;
+    color: white;
+}
+
+.carousel-nav-center .owl-nav button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-nav-center .owl-nav .owl-prev{
+    position: absolute;
+    left: 5px;
+}
+
+.carousel-nav-center .owl-nav .owl-next{
+    position: absolute;
+    right: 5px;
+}
+
+.owl-nav button{
+    border: none;
+    outline: none;
+}
+
+.owl-nav button i{
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 50%;
+}
+
+.owl-nav button:hover i{
+    color: var(--main-color);
+}
+
+.top-down{
+    transform: translateY(-50px);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.delay-2{
+transition-delay: 0.2s;
+}
+
+.delay-4{
+transition-delay: 0.4s;
+}
+
+.owl-item.active .top-down{
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+
+@media only screen and (max-width: 850px){
+
+} 

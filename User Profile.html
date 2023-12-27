@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Profile</title>
+    <link rel="stylesheet" type="text/css" href="./CSS/profile.css">
+</head>
+
+<body>
+
+       <h1>MY PROFILE</h1>
+
+       <button onclick="goToPreferences()">Preferences</button>
+       <button onclick="goToNotification()">Notifications Settings</button>
+       
+
+       <script>
+        function goToPreferences() 
+        {
+            // Use window.location.href to navigate to another page
+            window.location.href = 'preferences.html';
+        }
+       </script>
+
+       <script>
+         function goToNotification() 
+        {
+          window.location.href = 'notification.html';
+        }
+        </script>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section>
+      <h2>My Account</h2>
+      <div id="account">
+         <img src="profile picture.jpeg" alt="User Profile Picture">
+         <div class="account-details">
+            <h3>Pei Xuan</h3>
+            <p><b>Email: </b>teopx04@gmail.com</p>
+            <p><b>Contact Number:</b> 012 3355 785</p>
+            <p><b>Address:</b>66, Taman Bukit Beruang, Jalan Bukit Beruang, 75450, Ayer Keroh, Melaka</p>
+            <p><b>Gender:</b>Female</p>
+          </div>
+      </div>
+   </section>
+
+   <section>
+      <h2>Purchase History</h2>
+      <div id="history">
+        <table>
+          <thead>
+          <tr>
+          <th>No.</th>
+          <th>Music Shows</th>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Location</th>
+          </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+                <td>New Year Music Show</td>
+                <td>Music Show</td>
+                <td>15-02-2024</td>
+                <td>6:30 pm</td>
+                <td>The Sail Melaka</td>
+            </tr>
+            <tr>
+                <td>Bach & Charpentier</td>
+                <td>Choir</td>
+                <td>08-03-2024</td>
+                <td>7:30 pm</td>
+                <td>Christ Church Melaka</td>
+            </tr>
+            <tr>
+              <td>Black Pink World Tour</td>
+              <td>Concert</td>
+              <td>15-06-2024</td>
+              <td>6:30 pm</td>
+              <td>The Sail Melaka</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var rows = document.querySelectorAll('#history tbody tr');
+
+    rows.forEach(function (row, index) 
+    {
+        var cell = row.insertCell(0);
+        /*insertCell(0) = insert at the cell 0 (No.)*/
+        
+        cell.textContent = index + 1;
+        /*index+1 is to update the "no." accordingly, the number wont repeat*/
+    });
+});
+</script> 
+<!--This Java Script used to update the table "no." automatically-->
+
+</body>
+</html>

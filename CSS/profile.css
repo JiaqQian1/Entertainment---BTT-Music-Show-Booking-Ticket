@@ -1,0 +1,93 @@
+h1
+{
+    padding: 20px;
+    color:white;
+    background-color: #858383;
+    text-align:center;
+}
+
+body
+{
+    background-color:rgb(91, 84, 84);
+}
+
+h2
+{
+    color:rgb(67, 62, 62);
+    background-color: beige;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:30px;
+    font-weight:bold;
+    text-align:center;
+}
+
+h3
+{
+    color:white;
+    font-size: 30px;
+    margin:10px;
+}
+
+button
+{
+    background-color: rgb(72, 131, 209);
+    color:white;
+    font-size:25px;
+    padding:20px;
+    float:right;
+    border-radius: 10px;
+}
+
+button:hover
+{
+   cursor:pointer;
+   color:black;
+   font-weight: bold;
+   background-color: #3fd68d;
+}
+
+#account 
+{
+    display:flex;
+}
+
+.account-details p
+{
+    font-size:20px;
+    margin:10px;
+    display:flex;
+    background-color: none;
+    color:white;
+}
+
+#account img 
+{
+    border-radius: 10px;
+}
+
+table 
+{
+    width: 100%;
+    border-collapse: collapse; /*Make the border (box) link together*/
+    margin-top: 20px;
+}
+
+th
+{
+    font-size: 25px;
+    border: 2px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    color:rgb(11, 11, 11);
+    background-color: #918e8e;
+}
+
+td
+{
+    color:rgb(251, 205, 145);
+    font-size: 25px;
+    background-color: #c99e8086;
+    text-align: center;
+    border: 2px solid #ddd;
+    padding:10px;
+}
