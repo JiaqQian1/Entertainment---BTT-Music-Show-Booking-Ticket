@@ -127,4 +127,17 @@ td
 .close:hover{
     background-color:rgb(221, 101, 101);
 }
+
+#theme{
+    font-size: 30px;
+}
+
+#language{
+    font-size:30px;
+}
+
+label
+{
+    font-size:30px;
+}
   

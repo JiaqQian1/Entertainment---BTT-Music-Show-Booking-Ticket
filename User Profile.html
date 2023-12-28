@@ -14,18 +14,42 @@
        <button onclick="goToPreferences()">Preferences</button>
        <button onclick="goToNotification()">Notifications Settings</button>
        
-       <div id="preferencesModal" class="modal">
+      <div id="preferencesModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('preferencesModal')">&times;</span>
-            <p>This is the Preferences modal content.</p>
+            <h1>Preferences Settings</h1>
+            <label for="theme">Select Theme:</label>
+        <select id="theme">
+            <option value="light">Light Theme</option>
+            <option value="dark">Dark Theme</option>
+            <option value="auto">Auto Theme</option>
+        </select>
+        <br>
+        <label for="language">Select Language:</label>
+        <select id="language">
+            <option value="english">English</option>
+            <option value="chinese">Chinese</option>
+            <option value="malay">Malay</option>
+            <option value="korean">Korean</option>
+            <option value="spanish">Spanish</option>
+        </select>
         </div>
-    </div>
+      </div>
     
     <div id="notificationModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('notificationModal')">&times;</span>
-            <!-- Add your notification settings content here -->
-            <p>This is the Notification Settings modal content.</p>
+            
+            <h1>Notification Settings</h1>
+            <label>
+              <input type="checkbox" id="emailNotifications"> Receive Email Notifications
+          </label>
+          <br>
+          <label>
+              <input type="checkbox" id="smsNotifications"> Receive SMS Notifications
+          </label>
+          
+      </div>
         </div>
     </div>
         
