@@ -109,7 +109,7 @@ td
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 20px;
+    padding: 50px 100px 50px 100px;
 }
 
 .close {
