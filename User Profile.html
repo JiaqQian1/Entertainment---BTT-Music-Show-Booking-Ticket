@@ -14,21 +14,21 @@
        <button onclick="goToPreferences()">Preferences</button>
        <button onclick="goToNotification()">Notifications Settings</button>
        
-
-       <script>
-        function goToPreferences() 
-        {
-            // Use window.location.href to navigate to another page
-            window.location.href = 'preferences.html';
-        }
-       </script>
-
-       <script>
-         function goToNotification() 
-        {
-          window.location.href = 'notification.html';
-        }
-        </script>
+       <div id="preferencesModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('preferencesModal')">&times;</span>
+            <p>This is the Preferences modal content.</p>
+        </div>
+    </div>
+    
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('notificationModal')">&times;</span>
+            <!-- Add your notification settings content here -->
+            <p>This is the Notification Settings modal content.</p>
+        </div>
+    </div>
+        
     
     <br>
     <br>
@@ -38,7 +38,7 @@
     <section>
       <h2>My Account</h2>
       <div id="account">
-         <img src="./images/profile picture.jpeg" alt="User Profile Picture">
+         <img src = "./images/profile picture.jpeg" alt="User Profile Picture">
          <div class="account-details">
             <h3>Pei Xuan</h3>
             <p><b>Email: </b>teopx04@gmail.com</p>
@@ -91,20 +91,8 @@
 </div>
 </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    var rows = document.querySelectorAll('#history tbody tr');
+ <script src="./JS/UserProfile.js"></script>
 
-    rows.forEach(function (row, index) 
-    {
-        var cell = row.insertCell(0);
-        /*insertCell(0) = insert at the cell 0 (No.)*/
-        
-        cell.textContent = index + 1;
-        /*index+1 is to update the "no." accordingly, the number wont repeat*/
-    });
-});
-</script> 
 <!--This Java Script used to update the table "no." automatically-->
 
 </body>
