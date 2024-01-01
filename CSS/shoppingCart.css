@@ -12,6 +12,7 @@ body{
     max-width: 90vw;
     margin:auto;
     padding-top:20px;
+    transition:transform .5s;
 }
 
 svg{
@@ -97,11 +98,19 @@ header .icon-cart span{
     background-color:#858383;
     color:white;
     position:fixed;
-    inset:0 0 0 auto;
+    inset:0 -400px 0 auto;
     display:grid;
     grid-template-rows: 70px 1fr 70px;
+    transition: .5s;
 }
 
+body .showCart .cartTab{
+    inset:0 0 0 auto;
+}
+
+body .showCart .contaniner{
+    transform: translateX(-250px);
+}
 .cartTab h1
 {
     padding: 20px;
@@ -117,17 +126,60 @@ header .icon-cart span{
 
 .cartTab .button button
 {
+    font-size:30px;
+    font-family:'Times New Roman', Times, serif;
     background-color:rgb(250, 165, 8);
+    font-weight:300;
     box-shadow: 5px;
     border-radius:10px;
     cursor:pointer;
 }
 
 .cartTab .button button:hover{
-    background-color:rgb(249, 177, 44);
+    background-color:rgb(240, 179, 65);
     font-weight:bold;
 }
 
 button{
     font-size:25px;
+}
+
+.cartTab .listCart .item img{
+   width:100%;
+
+}
+
+.cartTab .listCart .item{
+    display:grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap:10px;
+    text-align:center;
+    align-items: center;
+}
+
+.listCart .qty span{
+    display:inline-block;
+    width:25px;
+    height:25px;
+    background-color:white;
+    color:#555;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.listCart .qty span:nth-child(2){
+    background-color:transparent;
+    color:rgb(248, 239, 239);
+}
+
+.listCart .item:nth-child(even){
+    background-color:#eee;
+}
+
+.listCart{
+    overflow:auto;
+}
+
+.listCart::-webkit-scrollbar {
+    width: 0;
 }
