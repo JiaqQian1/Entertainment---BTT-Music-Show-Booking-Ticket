@@ -3,11 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viewing Shopping Cart</title>
+    <title>BTT Music Show Booking Ticket</title>
+    <link rel="shortcut icon" href="images/fav icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./CSS/shoppingCart.css">
 </head>
-<body class="">
-    
+<body>
+    <div class="menu">
+        <div class="logo">
+            <a href="#">
+                <img src="images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul>
+            <li class="active"><a href="./index.html"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fa fa-music"></i>Music Shows</a>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="./concert.html">Concert</a></li>
+                        <li><a href="./liveband.html">Live Band</a></li>
+                        <li><a href="./choir.html">Choir</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="./shoppingCart.html"><i class="fa fa-hand-o-up"></i>Booking Now</a></li>
+            <li><a href="#"><i class="fa fa-user"></i>About Us</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i>Contact Us</a></li>
+            <li>
+                <a href="./loginform.html" class="btn btn-hover">
+                    <span>Log in</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
     <div class="container">
         <header>
             <div class="title">UPCOMING MUSIC SHOW TICKET LIST</div>
@@ -70,7 +99,8 @@
                 <button class="buyNow">Buy Now</button>
             </div>
         </div>
-        
+    </div>
+    <div class="showCart">    
         <div class="cartTab">
             <h1>Shopping Cart</h1>
             <div class="listCart">
@@ -94,7 +124,7 @@
               <button class="checkOut">Check Out</div>
             </div>
         </div>
-    </div>
+    
 
     <script src="./JS/shoppingCart.js"></script>
 </body>
