@@ -1,66 +1,43 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - BTT Music Show Booking Ticket Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        p {
-            line-height: 1.6;
-        }
-
-        .mission, .experience, .commitment {
-            margin-bottom: 20px;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .gallery img {
-            max-width: 25%;
-            border-radius: 4px;
-            margin-bottom: 4px;
-        }
-    </style>
+    <title>BTT Music Show Booking Ticket</title>
+    <link rel="stylesheet" href="./CSS/about us.css"/>
+    <link rel="shortcut icon" href="images/fav icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-
-    <header>
-        <h1>BTT Music Show Booking Ticket Website</h1>
-    </header>
+    <div class="menu">
+        <div class="logo">
+            <a href="#">
+                <img src="images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul>
+            <li class="active"><a href="./index.html"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fa fa-music"></i>Music Shows</a>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="./concert.html">Concert</a></li>
+                        <li><a href="./liveband.html">Live Band</a></li>
+                        <li><a href="./choir.html">Choir</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#"><i class="fa fa-hand-o-up"></i>Booking Now</a></li>
+            <li><a href="#"><i class="fa fa-user"></i>About Us</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i>Contact Us</a></li>
+            <li>
+                <a href="./index.html" class="btn btn-hover">
+                    <span>Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <section id="about">
         <h2>About Us</h2>
