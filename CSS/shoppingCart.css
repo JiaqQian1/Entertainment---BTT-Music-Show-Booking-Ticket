@@ -261,8 +261,6 @@ header .icon-cart span{
 }
 
 .cart-img{
-    width:100px;
-    height:100px;
     object-fit: contain;
     padding:10px;
 }
