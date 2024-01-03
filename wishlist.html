@@ -1,80 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTT Music Show Booking Ticket</title>
-    <link rel="shortcut icon" href="images/fav icon.png">
-    <link rel="stylesheet" href="./CSS/wishlist.css">
-</head>
-<body>
-    <div class="container">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BTT Music Show Booking Ticket</title>
+        <link rel="shortcut icon" href="images/fav icon.png">
+        <link rel="stylesheet" href="/CSS/wishlist.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        
         <header>
-            <h1>Wishlist</h1>
-            <div class="wishlist">
-                <img src="images/wishlist.png">
-                <span class="quantity">0</span>
+            <div class="nav container">
+                <a href="#" class="logo">Wishlist</a>
+                <i class="fa fa-heart-o" aria-hidden="true " id="wish-icon"></i>
+                <div class="card">
+                    <h2 class="card-title">Your Wishlist</h2>
+                    <div class="card-content">
+
+           
+                    </div>
+
+                    <div class="line">
+                    </div>
+                    <!--add to cart-->
+                    <button type="button" class="btn-add">Add to Cart</button>
+                    <!--card clos-->
+                    <i class="fa fa-times" id="close-card" aria-hidden="true"></i>
+                </div>
             </div>
         </header>
-        <div class="list">
-            <div class="item">
-                <div class="title">BLACKPINK CONCERT</div>
-                <img src="images/blackpinkconcert.jpg">
-                <button onclick="addToCard">Add To Card</button>
-            </div>
 
-            <div class="item">
-                <div class="title">XUE ZHIQIAN CONCERT</div>
-                <img src="images/xuezhiqianconcert.jpg">
-                <button onclick="addToCard">Add To Card</button>
-            </div>
+        <section class="wish container">
+            <h2 class="section-title">Music Shows List</h2>
+            <!--content-->
+            <div class="wishlist-content">
+                <!--box1-->
+                <div class="list-box">
+                    <img src="images/blackpinkconcert.jpg" class="list-img">
+                    <div class="list-title">BLACKPINK CONCERT</div>
+                    <span class="price">RM 150</span>
+                    <i class="fa fa-plus-square add-card" aria-hidden="true"></i> 
+                </div>
 
-            <div class="item">
-                <div class="title">ANGELA CHANG CONCERT</div>
-                <img src="images/angelazhangconcert.jpg">
-                <button onclick="addToCard">Add To Card</button>
-            </div>
+                <div class="list-box">
+                    <img src="images/xuezhiqianconcert.jpg"  class="list-img">
+                    <div class="list-title">XUE ZHIQIAN CONCERT</div>
+                    <span class="price">RM 100</span>
+                    <i class="fa fa-plus-square add-card" aria-hidden="true"></i> 
+                </div>
 
-            <div class="item">
-                <div class="title">MÅNESKIN LIVE BAND</div>
-                <img src="images/maneskinliveband.jpg">
-                <button onclick="addToCard">Add To Card</button>
-            </div>
+                <div class="list-box">
+                    <img src="images/angelazhangconcert.jpg"  class="list-img">
+                    <div class="list-title">ANGELA CHANG CONCERT</div>
+                    <span class="price">RM 150</span>
+                    <i class="fa fa-plus-square add-card" aria-hidden="true"></i> 
+                </div>
 
-            <div class="item">
-                <div class="title">COLDPLAY LIVE BAND</div>
-                <img src="images/coldplay.jpg">
-                <button onclick="addToCard">Add To Card</button>
-            </div>
+                <div class="list-box">
+                    <img src="images/maneskinliveband.jpg"  class="list-img">
+                    <div class="list-title">MÅNESKIN LIVE BAND</div>
+                    <span class="price">RM 150</span>
+                    <i class="fa fa-plus-square add-card" aria-hidden="true"></i> 
+                </div>
 
-            <div class="item">
-                <div class="title">MAROON 5 LIVE BAND</div>
-                <img src="images/MARRON5.jpg">
-                <button onclick="addToCard">Add To Card</button>
-            </div>
+                <div class="list-box">
+                    <img src="images/coldplay.jpg"  class="list-img">
+                    <div class="list-title">COLDPLAY LIVE BAND</div>
+                    <span class="price">RM 150</span>
+                    <i class="fa fa-plus-square add-card" aria-hidden="true"></i> 
+                </div>
 
-            <div class="item">
-                <div class="title">VIENNA BOYS' CHOIR</div>
-                <img src="images/viennaboyschoir.jpg">
-                <button onclick="addToCard">Add To Card</button>
-            </div>
+                <div class="list-box">
+                    <img src="images/MARRON5.jpg"  class="list-img">
+                    <div class="list-title">MAROON 5 LIVE BAND</div>
+                    <span class="price">RM 150</span>
+                    <i class="fa fa-plus-square add-card" aria-hidden="true"></i> 
+                </div>
 
-            <div class="item">
-                <div class="title">THE SIXTEEN CHOIR</div>
-                <img src="images/thesixteen.jpg">
-                <button onclick="addToCard()">Add To Card</button>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <h1>Card</h1>
-        <ul class="listCard"></ul>
-        <div class="checkout">
-            <div class="total">Add to Shopping Chart</div>
-            <div class="closeWishlist">Close</div>
-        </div>
-    </div>
+                <div class="list-box">
+                    <img src="images/viennaboyschoir.jpg"  class="list-img">
+                    <div class="list-title">BLACKPINK CONCERT</div>
+                    <span class="price">RM 150</span>
+                    <i class="fa fa-plus-square add-card" aria-hidden="true"></i> 
+                </div>
 
-    <script src="./JS/wishlist.js"></script>
-</body>
-</html>
+                <div class="list-box">
+                    <img src="images/thesixteen.jpg"  class="list-img">
+                    <div class="list-title">THE SIXTEEN CHOIR</div>
+                    <span class="price">RM 150</span>
+                    <i class="fa fa-plus-square add-card" aria-hidden="true"></i> 
+                </div>
+            </div>
+        </section>
+        <script src="./JS/wishlist.js"></script>
+
+    </body>
+    </html>
