@@ -126,6 +126,19 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('seatModal')">&times;</span>
             <div class="movie-container">
+                <label>Confirm your Music Show</label>
+                <select id = "movie" style="width:100px; width:200px;font-size:20px;">
+                    <option value="150">BlackPink Concert</option>
+                    <option value="80">Maneskin Live Band</option>
+                    <option value="65">Vienna Boys Choir</option>
+                    <option value="165">Angela Zhang Concert</option>
+                    <option value="55">ColdPlay Live Band</option>
+                    <option value="65">Marron 5 Live Band</option>
+                    <option value="75">The Sixteen Choir</option>
+                </select>
+                <br>
+                <br>
+
               <label>Select your Seat</label>
                 <ul class="showcase">
                 <li>
@@ -212,10 +225,12 @@
                 </div>
               </div>
               
-              <p class="text">You have selected <span id="count">0</span>seats for a price of RM<span id="total">0</span>
+              <p class="text">You have selected <span id="count">0 </span> seats for a price of RM<span id="total">0</span>
               </p>
             </div>
-            <button class="add-cart">Add to Cart</button>
+            <br>
+            <br>
+            <input type="button" value="Add to Cart" onclick="addCartClicked();"></button>
        </div>
 
     </div>
