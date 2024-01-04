@@ -388,16 +388,17 @@ header .icon-cart span{
   color:white;
   align-items:center;
   justify-content: center;
-  height:70vh;
+  height:80vh;
   width:70vh;
   font-family: 'Times New Roman', Times, serif;
   font-size:30px;
   text-align:center;
+  padding: 50px;
 }
 .seat{
     background-color: #444451;
-    height:12px;
-    width:15px;
+    height:80px;
+    width:150px;
     margin:3px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -414,12 +415,14 @@ header .icon-cart span{
 .showcase 
 {
     background-color:rgba(213, 209, 209, 0.1);
-    padding:5px 10px;
+    padding: 10px 20px;
     border-radius: 5px;
     color:#bdb9b9;
     list-style-type: none;
     display:flex;
     justify-content: space-between;
+    width: 80%;
+    margin: 20px auto;
 }
   
 .showcase li {
@@ -448,7 +451,7 @@ header .icon-cart span{
 
 .seat:not(.occupied):hover{
     cursor:pointer;
-    transform:scale(1.2);
+    transform:scale(1.1);
 }
 
 .showcase .seat:not(.occupied):hover{
@@ -456,26 +459,20 @@ header .icon-cart span{
     transform:scale(1);
 }
 
-.showcase 
-{
-    background-color:rgba(213, 209, 209, 0.1);
-    padding:5px 10px;
-    border-radius: 5px;
-    color:#bdb9b9;
-    list-style-type: none;
-    display:flex;
-    justify-content: space-between;
-}
+
 
 .showcase li small{
     margin-left:10px;
+    font-size:30px;
 }
 
-.screen{
-    background-color: white;
-    height:70px;
-    width:100%;
-    margin:15px 0;
+.stage{
+    background-color: rgb(167, 165, 165);
+    height:200px;
+    width:70%;
+    margin: 0 auto;
     transform:rotateX(-45deg);
-    box-shadow:0 3px 10px rgba(255, 255, 255, 0.75)
+    box-shadow:0 3px 10px rgba(255, 255, 255, 0.75);
+   font-size:70px;
+   text-align:center;
 }
