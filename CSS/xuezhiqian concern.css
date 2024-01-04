@@ -137,16 +137,18 @@ body{
     margin-right: 1rem;
 }
 
+
 body {
     font-family: Arial, sans-serif;
+    background-color: black;
     margin: 0;
     padding: 0;
-    background-color: black;
-    color: #ffffff;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 header {
-    background-color: #333;
+    background-color: black;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -156,15 +158,25 @@ section {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color:#333;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #ffffff (0, 0, 0, 0.1);
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #f1f1f1(0, 0, 0, 0.1);
 }
 
-h2 {
-    color: #ffffff;
+h1,h2 {
+    color: #f1f1f1;
 }
 
 p {
-    line-height: 1.6;
+    color: #ea1a89;
+    line-height: 1.5;
+}
+
+strong {
+    color: #22b45c;
+}
+
+li{
+    color: #1E90FF;
+    text-align: center;
 }
