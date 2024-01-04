@@ -174,14 +174,12 @@ p {
 }
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;
 }
 
 .gallery img {
-    max-width: 25%;
-    border-radius: 4px;
-    margin-bottom: 4px;
+    max-width: 100%;
+    height: auto;
 }

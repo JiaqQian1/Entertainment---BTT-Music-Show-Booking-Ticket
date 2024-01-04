@@ -136,6 +136,7 @@ body{
 .btn i{
     margin-right: 1rem;
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -170,7 +171,7 @@ body {
     color: #fff;
   }
   
-  h1 {
+  h1,h2 {
     text-align: center;
     color:#ffffff
   }
@@ -185,6 +186,8 @@ body {
   
   form p {
     margin: 15px 0;
+    color: #333;
+    text-align: left;
   }
   
   label {
@@ -192,9 +195,9 @@ body {
     font-weight: bold;
   }
   
-  input[type="text"],
-  input[type="email"],
-  input[type="number"],
+  input[type="Your Name"],
+  input[type="Your Email"],
+  input[type="Your Message"],
   textarea {
     width: 100%;
     padding: 10px;
@@ -215,4 +218,8 @@ body {
   button:hover {
     background-color: #555;
   }
-  
+
+  p{
+    color: #ffffff;
+    text-align: center;
+  }
