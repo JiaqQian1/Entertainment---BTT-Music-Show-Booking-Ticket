@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="images/fav icon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./CSS/shoppingCart.css">
+    <script src="./JS/shoppingCart.js"></script>
 </head>
 <body>
     <div class="menu">
@@ -75,49 +76,49 @@
                 <img src="./images/blackpinkconcert.jpg" class="cart-img">
                 <div class="cart-product-title">BlackPink Concert</div>
                 <div class="price">RM 150</div>
-                <button onclick="goToSeat()">Buy Now</button>
+                <button onclick="goToSeat('BlackPink Concert', 150)">Buy Now</button>
             </div>
 
             <div class="items">
                 <img src="./images/maneskinliveband.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="cart-product-title">Maneskin Live Band</div>
                 <div class="price">RM 80</div>
-                <button onclick="goToSeat()">Buy Now</button>
+                <button onclick="goToSeat('Maneskin Live Band', 80)">Buy Now</button>
             </div>
 
             <div class="items">
                 <img src="./images/viennaboyschoir.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="cart-product-title">Vienna Boys Choir</div>
                 <div class="price">RM 65</div>
-                <button onclick="goToSeat()">Buy Now</button>
+                <button onclick="goToSeat('Vienna Boys Choir', 65)">Buy Now</button>
             </div>
 
             <div class="items">
                 <img src="./images/angelazhangconcert.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="cart-product-title">Angela Zhang Concert</div>
                 <div class="price">RM 165</div>
-                <button onclick="goToSeat()">Buy Now</button>
+                <button onclick="goToSeat('Angela Zhang Concert', 165)">Buy Now</button>
             </div>
 
             <div class="items">
                 <img src="./images/coldplay.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="cart-product-title">ColdPlay Live Band</div>
                 <div class="price">RM 55</div>
-                <button onclick="goToSeat()">Buy Now</button>
+                <button onclick="goToSeat('ColdPlay Live Band', 55)">Buy Now</button>
             </div>
 
             <div class="items">
                 <img src="./images/MARRON5.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="cart-product-title">Marron 5 Live Band</div>
                 <div class="price">RM 65</div>
-                <button onclick="goToSeat()">Buy Now</button>
+                <button onclick="goToSeat('Marron 5 Live Band', 65)">Buy Now</button>
             </div>
 
             <div class="items">
                 <img src="./images/thesixteen.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="cart-product-title">The Sixteen Choir</div>
                 <div class="price">RM 75</div>
-                <button onclick="goToSeat()">Buy Now</button>
+                <button onclick="goToSeat('The Sixteen Choir', 75)">Buy Now</button>
             </div>
         </div>
     </div>
@@ -125,9 +126,9 @@
     <div id="seatModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('seatModal')">&times;</span>
-            <div class="movie-container">
+            <div class="musicShow-container">
                 <label>Confirm your Music Show</label>
-                <select id = "movie" style="width:100px; width:200px;font-size:20px;">
+                <select id = "musicShow" style="width:100px; width:200px;font-size:20px;">
                     <option value="150">BlackPink Concert</option>
                     <option value="80">Maneskin Live Band</option>
                     <option value="65">Vienna Boys Choir</option>
@@ -177,15 +178,13 @@
 
                 <div class="row">
                     <div class="seat">B100</div>
-                    <div class="seat occupied"></div>
-                    <div class="seat">B101</div>
+                    <div class="seat occupied">B101</div>
                     <div class="seat">B102</div>
                     <div class="seat">B103</div>
                     <div class="seat">B104</div>
                     <div class="seat">B105</div>
-                    <div class="seat occupied"></div>
                     <div class="seat">B106</div>
-                    <div class="seat">B107</div>
+                    <div class="seat occupied">B107</div>
                     <div class="seat">B108</div>
                     <div class="seat">B109</div>
                     <div class="seat">B110</div>
@@ -241,19 +240,15 @@
                     <div class="seat">E112</div>
                 </div>
               </div>
-              
-              <p class="text">You have selected <span id="count">0 </span> seats for a price of RM<span id="total">0</span>
-              </p>
+
             </div>
             <br>
             <br>
-            <input type="button" value="Add to Cart" onclick="addCartClicked();"></button>
-       </div>
+            <input type="button" name="add-cart" value="Add To Cart" onclick="addCartClicked();"  style="width:200px;height:50px;background-color: rgb(251, 23, 23);color:white;font-size:30px;" />
 
     </div>
     
     
 
-    <script src="./JS/shoppingCart.js"></script>
 </body>
 </html>

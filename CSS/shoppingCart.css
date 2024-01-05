@@ -407,30 +407,37 @@ header .icon-cart span{
 
 .row{
     display:flex;
-    align-items: center;
-    justify-content: center;
 }
 
+.musicShow-container{
+    margin:20px 0;
+}
+
+.musicShow-container .select{
+    background-color:white;
+    border:0px;
+    border-radius:5px;
+    font-size:14px;
+    margin-left:10px;
+    padding:5px 15px 5px 15px;
+}
 
 .showcase 
 {
     background-color:rgba(213, 209, 209, 0.1);
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 5px;
     color:#bdb9b9;
     list-style-type: none;
     display:flex;
     justify-content: space-between;
-    width: 80%;
-    margin: 20px auto;
 }
   
 .showcase li {
     display:flex;
     align-items: center;
     justify-content:center;
-    margin: 10px 30px 10px 30px;
-    margin-bottom:5px;
+    margin: 0 10px;
   }
 
 .seat.selected{
@@ -460,14 +467,13 @@ header .icon-cart span{
 }
 
 
-
 .showcase li small{
     margin-left:10px;
     font-size:30px;
 }
 
 .stage{
-    background-color: rgb(167, 165, 165);
+    background-color: rgb(198, 196, 196);
     height:200px;
     width:70%;
     margin: 0 auto;
@@ -475,4 +481,14 @@ header .icon-cart span{
     box-shadow:0 3px 10px rgba(255, 255, 255, 0.75);
    font-size:70px;
    text-align:center;
+}
+
+.container{
+    perspective:1000px;
+    margin-bottom:30px;
+}
+
+.add-cart:hover{
+    background-color: rgb(252, 93, 93);
+    font-weight:bold;
 }
