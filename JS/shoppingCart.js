@@ -41,8 +41,14 @@ function ready(){
     for (var i=0; i<addCart.length; i++)
     {
         var button = addCart[i];
-        button.addEventListener('click', addCartClicked);
+        button
+        .addEventListener('click', addCartClicked);
     }
+
+    //add to cart btn
+    document
+    .getElementsByClassName("add-cart")[0]
+    .addEventListener("click",addButtonClicked);
 
     /*Buy button*/
     document
@@ -51,10 +57,27 @@ function ready(){
 }
 /* remarks */
 
+function addButtonClicked(){
+    var cartContent = document.querySelector(".cart-content");
+
+    // Check if there are any child nodes inside the card-content
+    if (cartContent.childElementCount === 0) {
+        alert("Your cart is empty. Please add items to your cart.");
+        return;
+    }
+
+    alert("Your items is already added to the cart");
+
+    // Clear the card content after adding to cart
+    while (cartContent.hasChildNodes()){
+        cartContent.removeChild(cartContent.firstChild);
+    }
+}
 
 function buyButtonClicked(){
     alert('Your Order is placed');
     var cartContent= document.getElementsByClassName('cart-content')[0];
+
     while (cartContent .hasChildNodes()){
         cartContent.removeChild(cartContent.firstChild);
     }
@@ -102,10 +125,7 @@ function addProductToCart(title, price, productImg) {
         alert("You had add this Music Show to your cart");
          return;
     }
-   
-}
-    
-var cartBoxContent = `
+   var cartBoxContent = `
         <img src="${productImg}" alt="" class="cart-img">
         <div class="details-box">
             <div class="cart-product-title">${title}</div>
@@ -118,7 +138,6 @@ var cartBoxContent = `
             <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z"/>
         </svg>
         </div>`;
-
 cartShopBox.innerHTML = cartBoxContent;
 cartItems.appendChild(cartShopBox);
 cartShopBox
@@ -127,6 +146,10 @@ cartShopBox
 cartShopBox
   .getElementsByClassName('cart-quantity')[0]
   .addEventListener('change', quantityChanged);
+
+
+}
+    
 
 
 
@@ -160,7 +183,7 @@ function goToSeat(musicShowName, musicShowPrice) {
     populateSeatModal(musicShowName, musicShowPrice);
 }
 
-function populateSeatModal(musicShowName, musicShowPrice) {
+function populateSeatModal(musicShowName, _musicShowPrice) {
     var musicShowSelect = document.getElementById('musicShow');
     for (var i = 0; i < musicShowSelect.options.length; i++) {
         if (musicShowSelect.options[i].text === musicShowName) {

@@ -410,19 +410,6 @@ header .icon-cart span{
     display:flex;
 }
 
-.musicShow-container{
-    margin:20px 0;
-}
-
-.musicShow-container .select{
-    background-color:white;
-    border:0px;
-    border-radius:5px;
-    font-size:14px;
-    margin-left:10px;
-    padding:5px 15px 5px 15px;
-}
-
 .showcase 
 {
     background-color:rgba(213, 209, 209, 0.1);
@@ -504,3 +491,4 @@ header .icon-cart span{
     background-color: rgb(201, 235, 150);
     font-weight:bold;
 }
+
