@@ -48,7 +48,7 @@ function ready(){
     //add to cart btn
     document
     .getElementsByClassName("add-cart")[0]
-    .addEventListener("click",addButtonClicked);
+    .addEventListener("click", addCartClicked);
 
     /*Buy button*/
     document
@@ -56,41 +56,43 @@ function ready(){
     .addEventListener('click', buyButtonClicked)
 }
 /* remarks */
-
+   
 function addButtonClicked(){
-    var cartContent = document.querySelector(".cart-content");
 
-    // Check if there are any child nodes inside the card-content
-    if (cartContent.childElementCount === 0) {
-        alert("Your cart is empty. Please add items to your cart.");
-        return;
-    }
-
-    alert("Your items is already added to the cart");
-
-    // Clear the card content after adding to cart
-    while (cartContent.hasChildNodes()){
-        cartContent.removeChild(cartContent.firstChild);
-    }
+    alert("Your items is added to the cart");
 }
 
-function buyButtonClicked(){
-    alert('Your Order is placed');
-    var cartContent= document.getElementsByClassName('cart-content')[0];
+function buyButtonClicked(){;
+    var cartContent = document.querySelector(".cart-content");
+    
+    // Check if there are any child nodes inside the card-content
+    if (cartContent.childElementCount == 0) {
+        alert("Your cart is empty. Please add items to your cart.");
+        return;
+    }else{
+        alert('Your Order is placed');
+         var cartContent= document.getElementsByClassName('cart-content')[0];
 
+    
     while (cartContent .hasChildNodes()){
         cartContent.removeChild(cartContent.firstChild);
     }
     updateTotal();
+    }
 }
 
 
-function removeCartItem(event){
+function removeCartItem(event) {
     var buttonClicked = event.target;
-    buttonClicked.parentElement.remove();
-    updateTotal();/*remarks*/
-}
+    var cartItem = buttonClicked.closest('.cart-box');
+    
+    if (cartItem) {
+        cartItem.remove();
+        updateTotal();
+    }
 
+    updateTotal();
+}
 /*Quantity Changes*/
 function quantityChanged(event){
     var input = event.target;
@@ -104,6 +106,8 @@ function quantityChanged(event){
 
 /*Add to cart*/
 function addCartClicked(event) {
+    alert("Your selected seat is saved");
+    
     var button = event.target;
     var shopProducts = button.parentElement;
     var title = shopProducts.getElementsByClassName('product-title')[0].innerText;
@@ -118,18 +122,20 @@ function addProductToCart(title, price, productImg) {
     cartShopBox.classList.add("cart-box");
     var cartItems = document.getElementsByClassName('cart-content')[0];
     var cartItemsNames = cartItems.getElementsByClassName('cart-product-title');
-
-    for (var i=0; i<cartItemsNames.length; i++)
-    {
+    
+    for (var i = 0; i < cartItemsNames.length; i++) {
+        var cartItemTitle = cartItemsNames[i].innerText;
         
-        alert("You had add this Music Show to your cart");
-         return;
+        if (cartItemTitle === title) {
+            alert("You had added this Music Show to your cart");
+            return;
+        }
     }
    var cartBoxContent = `
-        <img src="${productImg}" alt="" class="cart-img">
+        <img src="${productImg}" alt="" class="cart-img" style="width:100px;height:100px;padding:5px;">
         <div class="details-box">
             <div class="cart-product-title">${title}</div>
-            <div class="cart-price">${price}</div>
+            <div class="cart-price">RM ${price}</div>
             <input type="number" value="1" class="cart-quantity">
         </div>
 
@@ -147,7 +153,7 @@ cartShopBox
   .getElementsByClassName('cart-quantity')[0]
   .addEventListener('change', quantityChanged);
 
-
+   updateTotal();
 }
     
 
@@ -160,14 +166,14 @@ function updateTotal(){
     var total = 0;
     for (var i=0; i < cartBoxes.length; i++){
         var cartBox = cartBoxes[i];
-        var priceElement = cartBox.getElementsByClassName('price')[0];
+        var priceElement = cartBox.getElementsByClassName('cart-price')[0];
         var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0];
-        var price = parseFloat(priceElement.innerText.replace("RM", ""));
+        var price = parseFloat(priceElement.innerText.replace("RM", " "));
         var quantity = quantityElement.value;
         total = total + (price * quantity);
       }
 
-        document.getElementsByClassName('total-price')[0].innerText = "RM" + total;
+      document.getElementsByClassName('total-price')[0].innerText="RM " + total.toFixed(2);
     }
         
     
@@ -180,17 +186,47 @@ function openModal(modalId) {
 
 function goToSeat(musicShowName, musicShowPrice) {
     openModal('seatModal');
-    populateSeatModal(musicShowName, musicShowPrice);
+    populateSeatModal(musicShowName);
+    addButtonClicked();
+
+    var productImg;
+    switch (musicShowName) {
+        case 'BlackPink Concert':
+            productImg = './images/blackpinkconcert.jpg';
+            break;
+        case 'Maneskin Live Band':
+            productImg = './images/maneskinliveband.jpg';
+            break;
+        case 'Vienna Boys Choir':
+            productImg = './images/viennaboyschoir.jpg';
+            break;
+        case 'Angela Zhang Concert':
+            productImg = './images/angelazhangconcert.jpg';
+            break;
+        case 'ColdPlay Live Band':
+            productImg = './images/coldplay.jpg';
+            break;
+        case 'Marron 5 Live Band':
+            productImg = './images/MARRON5.jpg';
+            break;
+        case 'The Sixteen Choir':
+            productImg = './images/thesixteen.jpg';
+            break;
+    }
+
+    addProductToCart(musicShowName, musicShowPrice, productImg);
+    updateTotal();
 }
 
-function populateSeatModal(musicShowName, _musicShowPrice) {
+
+function populateSeatModal(musicShowName) {
     var musicShowSelect = document.getElementById('musicShow');
     for (var i = 0; i < musicShowSelect.options.length; i++) {
         if (musicShowSelect.options[i].text === musicShowName) {
             musicShowSelect.selectedIndex = i;
             break;
         }
-    }
+    }   
 }
 
 function closeModal(modalId) {

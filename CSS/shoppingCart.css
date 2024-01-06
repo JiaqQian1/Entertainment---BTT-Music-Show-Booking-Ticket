@@ -233,7 +233,7 @@ header .icon-cart span{
     position:fixed;
     top:0;
     right:-100%;
-    width:360px;
+    width:400px;
     min-height:100vh;
     padding:20px;
     background-color:#a7a4a4;
@@ -260,11 +260,18 @@ header .icon-cart span{
     margin-top:1rem;
 }
 
-.cart-img{
-    object-fit: contain;
-    padding:10px;
+.cart-product-title{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
+    font-weight:bold;
+    color:white;
+    text-align:left;
 }
 
+.cart-price{
+   font-size:15px;
+   text-align:left;
+}
 .details-box{
     display:grid;
     row-gap: 0.5rem;
@@ -390,16 +397,18 @@ header .icon-cart span{
   align-items:center;
   justify-content: center;
   height:80vh;
-  width:70vh;
+  width:100vh;
   font-family: 'Times New Roman', Times, serif;
   font-size:30px;
   text-align:center;
   padding: 50px;
+  overflow:auto;
 }
+
 .seat{
     background-color: #444451;
-    height:80px;
-    width:150px;
+    height:50px;
+    width:80px;
     margin:3px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -418,14 +427,14 @@ header .icon-cart span{
     color:#bdb9b9;
     list-style-type: none;
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
 }
   
 .showcase li {
     display:flex;
     align-items: center;
     justify-content:center;
-    margin: 0 10px;
+    margin: 0 5px;
   }
 
 .seat.selected{
@@ -462,12 +471,12 @@ header .icon-cart span{
 
 .stage{
     background-color: rgb(198, 196, 196);
-    height:200px;
+    height:100px;
     width:70%;
     margin: 0 auto;
     transform:rotateX(-45deg);
     box-shadow:0 3px 10px rgba(255, 255, 255, 0.75);
-   font-size:70px;
+   font-size:30px;
    text-align:center;
 }
 
@@ -492,3 +501,44 @@ header .icon-cart span{
     font-weight:bold;
 }
 
+@media screen and (max-width: 768px) {
+    #seatModal .modal-content {
+        height: 90vh; /* Adjust for smaller screens */
+        width: 90vw; /* Adjust for smaller screens */
+    }
+}
+
+/* Responsive adjustments for seat rows and seats */
+.row {
+    display: flex;
+    margin: 5px; /* Add some margin between rows */
+}
+
+.seat {
+    background-color: #444451;
+    height: 40px; /* Adjust height for smaller screens */
+    width: 70px; /* Adjust width for smaller screens */
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    justify-content: center;
+    transition: transform 0.3s ease; /* Add smooth transition */
+}
+
+/* Responsive adjustments for showcase */
+.showcase {
+    padding: 5px; /* Adjust padding for smaller screens */
+    border-radius: 5px;
+    color: #bdb9b9;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px; /* Adjust font size for smaller screens */
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px; /* Adjust margin for smaller screens */
+}
