@@ -136,15 +136,12 @@ body{
 .btn i{
     margin-right: 1rem;
 }
-
-
 body {
     font-family: Arial, sans-serif;
     background-color: black;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-align: center;
 }
 
 header {
@@ -168,15 +165,60 @@ h1,h2 {
 }
 
 p {
-    color: #ea1a89;
+    color: #eabcd4;
     line-height: 1.5;
 }
 
 strong {
-    color: #22b45c;
+    color: #99ebba;
 }
 
 li{
-    color: #1E90FF;
-    text-align: center;
+    color: #add2f7;
+}
+/* Add styles to place Venue and Schedule beside the picture */
+.photo-container {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Two columns, first one auto-sized for the picture, second one takes the remaining space for information */
+    gap: 20px; /* Adjust the gap between the columns as needed */
+    align-items: center;
+}
+
+.picture {
+    margin-right: 20px; /* Adjust the margin as needed */
+}
+
+.information {
+    max-width: 500px; 
+}
+
+.time{
+    font-size: 25px;
+    color: rgb(241, 241, 194);
+}
+
+.descript {
+    border: 1px solid white;
+    padding: 20px; /* Add padding to create space between the border and content */
+    font-size: 22px; /* Add the desired font size */
+}
+
+.descript li {
+    margin-bottom: 10px; /* Add some space between list items */
+    margin: 0 auto; /* Center-align the section */
+    max-width: 600px; 
+}
+
+
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .photo-container {
+        grid-template-columns: 1fr;
+    }
+
+    .picture {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 }
