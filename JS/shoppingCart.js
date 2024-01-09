@@ -212,6 +212,9 @@ function goToSeat(musicShowName, musicShowPrice) {
         case 'The Sixteen Choir':
             productImg = './images/thesixteen.jpg';
             break;
+        case 'Xue ZhiQian Concert':
+                productImg = './images/xuezhiqianconcert.jpg';
+                break;
     }
 
     addProductToCart(musicShowName, musicShowPrice, productImg);
