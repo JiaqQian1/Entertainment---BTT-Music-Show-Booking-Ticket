@@ -53,10 +53,6 @@ body{
     color: #fff;
 }
 
-.menu ul li img{
-    height:40px;
-    width:60px;
-}
 
 .active, .menu ul li:hover {
     border-radius: 3px;
