@@ -1,34 +1,36 @@
 <?php
-    session_start(); // Start the session to store user information
+     $email = $_POST['email'];
+     $password = $_POST['password'];
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+     $con = new mysqli("localhost", "root", "", "musicshow");
 
-        $conn = new mysqli('localhost', 'root', '', 'musicshow');
-        if ($conn->connect_error) {
-            die('Connection Failed: ' . $conn->connect_error);
-        } else {
-            $stmt = $conn->prepare("SELECT * FROM login WHERE email = ? AND password = ?");
-            $stmt->bind_param("ss", $email, $password);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result->num_rows > 0) {
-                // Login successful, store user information in the session
-                $_SESSION['emial'] = $email;
-
-                // Redirect to a dashboard or home page after successful login
-                header('Location: dashboard.php');
-                exit();
-            } else {
-                // Invalid login, show error message
-                echo '<script>alert("Invalid username or password.");';
+     if($con->connect_error)
+     {
+        die("Failed to connect: ".$con->connect_error);
+     }
+     else
+     {
+        $stmt = $con->prepare("select * from login where email = ?");
+        $stmt->bind_param("s",$email);
+        $stmt->execute();
+        $stmt_result = $stmt->get_result();
+        if($stmt_result->num_rows > 0)
+        {
+            $data = $stmt_result->fetch_assoc();    
+            if($data['password'] === $password)
+            {
+                echo '<script>alert("Login Successfully!!!");';
+                echo 'window.location.href = "index.html";</script>';
+            }
+            else
+            {
+                echo '<script>alert("Invalid username and password...");';
                 echo 'window.location.href = "loginform.html";</script>';
             }
-
-            $stmt->close();
-            $conn->close();
         }
-    }
+        else{
+            echo '<script>alert("Invalid username and password...");';
+                echo 'window.location.href = "loginform.html";</script>';
+        }
+     }
 ?>

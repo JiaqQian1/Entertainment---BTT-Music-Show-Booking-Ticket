@@ -40,20 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
     createAccountForm.classList.add("form--hidden");
   });
 
-  resetPasswordForm.addEventListener("submit", e => {
-    e.preventDefault();
-   
-    loginForm.classList.remove("form--hidden");
-    createAccountForm.classList.add("form--hidden");
-    resetPasswordForm.classList.add("form--hidden");
-    setFormMessage(loginForm, "success", "Password reset successful. You can now log in.");
-  });
-
-  loginForm.addEventListener("submit", e => {
-    e.preventDefault();
-    setFormMessage(loginForm, "error", "Invalid username/password combination");
-  });
-
   document.querySelectorAll(".form_input").forEach(inputElement => {
     inputElement.addEventListener("blur", e => {
       if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 10) {
