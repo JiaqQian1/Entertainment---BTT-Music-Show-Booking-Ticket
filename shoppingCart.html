@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +63,7 @@
         <div class="cartTab">
           <h2 class="cart-title">Your Shopping Cart</h2>
          
-            <div class="cart-content"></div>
+            <div class="cart-content" id="cartContent"></div>
                 
                 <div class="total">
                     <div class="total-title">Total</div>
@@ -157,23 +158,7 @@
                 <br>
                 <br>
 
-              <label>Select your Seat</label>
-                <ul class="showcase">
-                <li>
-                    <div class="seat"></div>
-                    <small>N/A</small>
-                </li>
-
-                <li>
-                    <div class="seat selected"></div>
-                    <small>Selected</small>
-                </li>
-
-                <li>
-                    <div class="seat occupied"></div>
-                    <small>Occupied</small>
-                </li>
-                </ul>
+              <label>Seat Preview</label>
 
               <div class="container">
                 <div class="stage">STAGE</div>
@@ -195,13 +180,13 @@
 
                 <div class="row">
                     <div class="seat">B100</div>
-                    <div class="seat occupied">B101</div>
+                    <div class="seat">B101</div>
                     <div class="seat">B102</div>
                     <div class="seat">B103</div>
                     <div class="seat">B104</div>
                     <div class="seat">B105</div>
                     <div class="seat">B106</div>
-                    <div class="seat occupied">B107</div>
+                    <div class="seat">B107</div>
                     <div class="seat">B108</div>
                     <div class="seat">B109</div>
                     <div class="seat">B110</div>
@@ -212,10 +197,10 @@
                 <div class="row">
                     <div class="seat">C100</div>
                     <div class="seat">C101</div>
-                    <div class="seat occupied">C102</div>
-                    <div class="seat occupied">C103</div>
+                    <div class="seat">C102</div>
+                    <div class="seat">C103</div>
                     <div class="seat">C104</div>
-                    <div class="seat occupied">C105</div>
+                    <div class="seat">C105</div>
                     <div class="seat">C106</div>
                     <div class="seat">C107</div>
                     <div class="seat">C108</div>
@@ -227,26 +212,26 @@
 
                 <div class="row">
                     <div class="seat">D100</div>
-                    <div class="seat occupied">D101</div>
-                    <div class="seat occupied">D102</div>
+                    <div class="seat">D101</div>
+                    <div class="seat">D102</div>
                     <div class="seat">D103</div>
                     <div class="seat">D104</div>
-                    <div class="seat occupied">D105</div>
+                    <div class="seat">D105</div>
                     <div class="seat">D106</div>
                     <div class="seat">D107</div>
                     <div class="seat">D108</div>
-                    <div class="seat occupied">D109</div>
+                    <div class="seat">D109</div>
                     <div class="seat">D110</div>
                     <div class="seat">D111</div>
                     <div class="seat">D112</div>
                 </div>
 
                 <div class="row">
-                    <div class="seat occupied">E100</div>
+                    <div class="seat">E100</div>
                     <div class="seat">E101</div>
                     <div class="seat">E102</div>
                     <div class="seat">E103</div>
-                    <div class="seat occupied">E104</div>
+                    <div class="seat">E104</div>
                     <div class="seat">E105</div>
                     <div class="seat">E106</div>
                     <div class="seat">E107</div>
@@ -258,15 +243,42 @@
                 </div>
               </div>
 
+
+              <label>Select your Zone</label>
+                <select id = "zoneSelect" style="width:150px; width:200px;font-size:20px;">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+
+                <label>Select Seat Number</label>
+                <select id = "seatSelect" style="width:150px; width:200px;font-size:20px;">
+                    <option value="100">100</option>
+                    <option value="101">101</option>
+                    <option value="102">102</option>
+                    <option value="103">103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
+                    <option value="106">106</option>
+                    <option value="107">107</option>
+                    <option value="108">108</option>
+                    <option value="109">109</option>
+                    <option value="110">110</option>
+                    <option value="111">111</option>
+                    <option value="112">112</option>
+                
+                </select>
             </div>
             <br>
-
+    
             <div class="add-cart">
                 <svg class="w-[40px] h-[40px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 21">
                     <path d="M15 14H7.78l-.5-2H16a1 1 0 0 0 .962-.726l.473-1.655A2.968 2.968 0 0 1 16 10a3 3 0 0 1-3-3 3 3 0 0 1-3-3 2.97 2.97 0 0 1 .184-1H4.77L4.175.745A1 1 0 0 0 3.208 0H1a1 1 0 0 0 0 2h1.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 10 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3Zm-8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm8 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
                     <path d="M19 3h-2V1a1 1 0 0 0-2 0v2h-2a1 1 0 1 0 0 2h2v2a1 1 0 0 0 2 0V5h2a1 1 0 1 0 0-2Z"/>
-                    <p>Add to Cart</p>
                   </svg>
+                  <p>Add to Cart</p>
             </div>
 
     </div>
