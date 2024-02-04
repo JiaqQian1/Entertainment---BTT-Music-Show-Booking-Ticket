@@ -1,11 +1,4 @@
-<?php
-// Database connection parameters
-$con = new mysqli("localhost", "root", "", "musicshow");
-
-if ($con->connect_error) {
-    die("Failed to connect: " . $con->connect_error);
-}
-
+<?php include("dbconnection.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +6,7 @@ if ($con->connect_error) {
 	<title>BTT Music Show Booking Ticket</title>
 	<style>
 
-        
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -63,7 +56,7 @@ p {
         <p>At BTT Music Show Booking Ticket Website, our mission is to make live music accessible to everyone. We strive to create a community where fans can discover new artists, share their love for music, and secure tickets to the most anticipated shows effortlessly.</p>
        
         <h2>The Experience</h2>
-        <p>We understand that attending a live music event is more than just a night out; it's a journey filled with emotions, energy, and connection.BTT Music Show Booking Ticket Websiteis designed to enhance this experience, ensuring that every step of your ticket booking process is smooth, transparent, and enjoyable.</p>
+        <p>We understand that attending a live music event is more than just a night out; its a journey filled with emotions, energy, and connection.BTT Music Show Booking Ticket Websiteis designed to enhance this experience, ensuring that every step of your ticket booking process is smooth, transparent, and enjoyable.</p>
    
         <h2>Our Commitment to You</h2>
         <p>We are committed to providing you with:</p>
