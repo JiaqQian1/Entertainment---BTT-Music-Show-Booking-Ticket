@@ -5,38 +5,63 @@
 <link rel="stylesheet" href="footer.css">
 	<title>BTT Music Show Booking Ticket</title>
 	<style>
-
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: black;
-    color: #ffffff;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .menu img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  ul li {
+    margin-right: 20px;
+  }
+  
+  ul li a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  h1 {
     text-align: center;
-}
+    color:black;
+  }
 
-section {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color:#333;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #ffffff (0, 0, 0, 0.1);
-}
+  section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
 h2 {
-    color: #ffffff;
+    color: black;
 }
 
 p {
     line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+}
+
+footer p {
+  margin: 0; 
 }
 
 </style>
