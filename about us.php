@@ -1,3 +1,11 @@
+<?php
+// Database connection parameters
+$con = new mysqli("localhost", "root", "", "musicshow");
+
+if ($con->connect_error) {
+    die("Failed to connect: " . $con->connect_error);
+}
+
 <!DOCTYPE html>
 <html>
 <head>
