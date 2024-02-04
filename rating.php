@@ -78,6 +78,15 @@ body {
   button:hover {
     background-color: #555;
   }
+
+  footer {
+  text-align: center;
+  padding: 10px;
+}
+
+footer p {
+  margin: 0; 
+}
   </style>
 </head>
 <body>
