@@ -209,6 +209,11 @@ button:hover
     border-radius: 10px;
 }
 
+#account svg{
+    width:30px;
+    height:30px;
+}
+
 table 
 {
     width: 100%;
