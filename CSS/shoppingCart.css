@@ -273,7 +273,7 @@
         text-align:left;
     }
 
-    .cart-price{
+    .cart-price, #zoneSelect, #seatSelect{
     font-size:15px;
     text-align:left;
     }
@@ -424,32 +424,6 @@
         display:flex;
     }
 
-    .showcase 
-    {
-        background-color:rgba(213, 209, 209, 0.1);
-        padding: 5px 10px;
-        border-radius: 5px;
-        color:#bdb9b9;
-        list-style-type: none;
-        display:flex;
-        justify-content: center;
-    }
-    
-    .showcase li {
-        display:flex;
-        align-items: center;
-        justify-content:center;
-        margin: 0 5px;
-    }
-
-    .seat.selected{
-        background-color:#62e9f0;
-    }
-
-    .seat.occupied{
-        background-color: rgb(251, 51, 51);
-    }
-
     .seat:nth-of-type(4){
         margin-right:18px;
     }
@@ -460,18 +434,6 @@
 
     .seat:not(.occupied):hover{
         cursor:pointer;
-        transform:scale(1.1);
-    }
-
-    .showcase .seat:not(.occupied):hover{
-        cursor:default;
-        transform:scale(1);
-    }
-
-
-    .showcase li small{
-        margin-left:10px;
-        font-size:30px;
     }
 
     .stage{
