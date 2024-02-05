@@ -52,7 +52,11 @@ body{
     text-decoration: none;
     color: #fff;
 }
-
+.menu ul li img{
+    height:40px;
+    width:60px;
+    margin-left:0px;
+}
 
 .active, .menu ul li:hover {
     border-radius: 3px;
