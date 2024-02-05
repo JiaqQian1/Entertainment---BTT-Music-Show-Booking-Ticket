@@ -1,10 +1,10 @@
+<?php include("dbconnection.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="footer.css">
 	<title>BTT Music Show Booking Ticket</title>
 	<style>
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -30,7 +30,7 @@ body {
   
   ul li a {
     text-decoration: none;
-    color: #fff;
+    color: black;
   }
   
   h1 {
@@ -79,7 +79,8 @@ body {
     background-color: #555;
   }
 
-  footer {
+  
+footer {
   text-align: center;
   padding: 10px;
 }
@@ -87,6 +88,8 @@ body {
 footer p {
   margin: 0; 
 }
+
+
   </style>
 </head>
 <body>
@@ -137,7 +140,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
-
 
 <?php @include 'footer.php'; ?>
 </body>

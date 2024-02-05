@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2024 at 07:17 AM
+-- Generation Time: Feb 05, 2024 at 07:15 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -24,32 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rating`
+-- Table structure for table `contact_us`
 --
 
-CREATE TABLE `rating` (
+CREATE TABLE `contact_us` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `rating` int(11) NOT NULL,
-  `comments` text NOT NULL
+  `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `rating`
+-- Dumping data for table `contact_us`
 --
 
-INSERT INTO `rating` (`id`, `username`, `email`, `rating`, `comments`) VALUES
-(1, 'JohnDoe', 'john.doe@gmail.com', 5, 'Great experience at the music show!');
+INSERT INTO `contact_us` (`id`, `name`, `email`, `message`) VALUES
+(1, 'John Doe', 'john@gmail.com', 'Im interested in the upcoming music show. Please provide detailed information regarding the date, venue, and ticketing. Thank you!.');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `rating`
+-- Indexes for table `contact_us`
 --
-ALTER TABLE `rating`
+ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -57,9 +56,9 @@ ALTER TABLE `rating`
 --
 
 --
--- AUTO_INCREMENT for table `rating`
+-- AUTO_INCREMENT for table `contact_us`
 --
-ALTER TABLE `rating`
+ALTER TABLE `contact_us`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
