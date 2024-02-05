@@ -31,7 +31,7 @@
         <li><a href="./about us.html"><i class="fa fa-user"></i>About Us</a></li>
         <li><a href="./contact us.html"><i class="fa fa-phone"></i>Contact Us</a></li>
         <li>
-            <a href="./User Profile.html">
+            <a href="./profile.php">
                 <img src="./images/profie picture circle.jpg" alt="Profile Picture">
             </a>
         </li>
@@ -41,19 +41,20 @@
 <h1>MY PROFILE</h1>
 
 <?php
-session_start(); // Start the session
+// Start the session
+session_start();
 
-// Check if the user is logged in
+// Check if the user is not logged in
 if (!isset($_SESSION['username'])) {
-    // Redirect to the login page or handle authentication as needed
+    // Redirect to the login page
     header("Location: ./loginform.html");
     exit();
 }
 
 // Database connection parameters
 $servername = "localhost";
-$username = "root"; 
-$password = "";     
+$username = "root";
+$password = "";
 $database = "musicshow";
 
 $conn = new mysqli($servername, $username, $password, $database);
@@ -92,11 +93,7 @@ if ($result->num_rows > 0) {
     echo "Unavailable User";
 }
 
-// Close connection
-$conn->close();
-
-
-
+// Retrieve user's purchase history from the database
 $sqlHistory = "SELECT * FROM purchase_history WHERE login_id = (SELECT id FROM login WHERE username = '{$_SESSION['username']}')";
 $resultHistory = $conn->query($sqlHistory);
 
@@ -138,10 +135,10 @@ if ($resultHistory->num_rows > 0) {
     echo "<p>No purchase history available.</p>";
 }
 
+$conn->close();
 ?>
 
 <?php @include 'footer.php'; ?>
- <script src="./JS/UserProfile.js"></script>
-
+<script src="./JS/UserProfile.js"></script>
 </body>
 </html>
