@@ -1,10 +1,10 @@
+<?php include("dbconnection.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="footer.css">
 	<title>BTT Music Show Booking Ticket</title>
 	<style>
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -30,7 +30,7 @@ body {
   
   ul li a {
     text-decoration: none;
-    color: #fff;
+    color: black;
   }
   
   h1 {
@@ -79,7 +79,8 @@ body {
     background-color: #555;
   }
 
-  footer {
+  
+footer {
   text-align: center;
   padding: 10px;
 }
@@ -87,6 +88,8 @@ body {
 footer p {
   margin: 0; 
 }
+
+
   </style>
 </head>
 <body>
@@ -113,23 +116,25 @@ footer p {
     <p><button type="submit">Submit Feedback</button></p>
 </form>
 <?php
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Check if form is submitted
     if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["rating"]) && isset($_POST["comments"])) {
-        // Sanitize and store form data
         $username = htmlspecialchars($_POST["username"]);
         $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
         $rating = intval($_POST["rating"]);
         $comments = htmlspecialchars($_POST["comments"]);
 
-        // Perform any additional validation if needed
+        $sql = "INSERT INTO feedback (username, email, rating, comments) 
+                VALUES ('$username', '$email', '$rating', '$comments')";
 
-        // Process the data or save it to a database
-        // For now, let's just display the submitted data
-        echo "<h2>Thank you for your feedback, $username!</h2>";
-        echo "<p>Email: $email</p>";
-        echo "<p>Rating: $rating/5</p>";
-        echo "<p>Comments: $comments</p>";
+        if ($conn->query($sql) === TRUE) {
+            echo "<h2>Thank you for your feedback, $username!</h2>";
+            echo "<p>Email: $email</p>";
+            echo "<p>Rating: $rating/5</p>";
+            echo "<p>Comments: $comments</p>";
+        } else {
+            echo "<p>Error: " . $sql . "<br>" . $conn->error . "</p>";
+        }
     } else {
         echo "<p>Form submission is incomplete. Please fill in all required fields.</p>";
     }
