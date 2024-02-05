@@ -1,6 +1,3 @@
-var selectedZone;
-var selectedSeatNumber;
-
 document.addEventListener('DOMContentLoaded', function () {
     let cartIcon = document.querySelector(".icon-cart");
     let cart = document.querySelector(".cartTab");
@@ -14,12 +11,6 @@ cartIcon.onclick = () => {
 closeCart.onclick = () => {
     cart.classList.remove("active");
 };
-
-document
-.getElementsByClassName('btn-buy')[0]
-.addEventListener('click', buyButtonClicked);
-
-
 
 });
 
@@ -46,12 +37,23 @@ function ready(){
         input.addEventListener('change', quantityChanged);
     }
 
-    var addCart = document.getElementsByClassName('add-cart');
-    for (var i = 0; i < addCart.length; i++) {
+    var addCart = document.getElementsByClassName('add-cart')
+    for (var i=0; i<addCart.length; i++)
+    {
         var button = addCart[i];
-        button.addEventListener('click', addCartClicked);
+        button
+        .addEventListener('click', addCartClicked);
     }
 
+    //add to cart btn
+    document
+    .getElementsByClassName("add-cart")[0]
+    .addEventListener("click", addCartClicked);
+
+    /*Buy button*/
+    document
+    .getElementsByClassName('btn-buy')[0]
+    .addEventListener('click', buyButtonClicked)
 }
 /* remarks */
    
@@ -60,7 +62,7 @@ function addButtonClicked(){
     alert("Your items is added to the cart");
 }
 
-function buyButtonClicked(){
+function buyButtonClicked(){;
     var cartContent = document.querySelector(".cart-content");
     
     // Check if there are any child nodes inside the card-content
@@ -88,6 +90,8 @@ function removeCartItem(event) {
         cartItem.remove();
         updateTotal();
     }
+
+    updateTotal();
 }
 /*Quantity Changes*/
 function quantityChanged(event){
@@ -105,17 +109,15 @@ function addCartClicked(event) {
     alert("Your selected seat is saved");
     
     var button = event.target;
-    var shopProducts = button.parentElement.parentElement;
+    var shopProducts = button.parentElement;
     var title = shopProducts.getElementsByClassName('product-title')[0].innerText;
     var price = shopProducts.getElementsByClassName('price')[0].innerText;
     var productImg = shopProducts.getElementsByClassName('cart-img')[0].src;
-    var selectedZone = document.getElementById('zoneSelect').value;
-    var selectedSeatNumber = document.getElementById('seatSelect').value;
-    addProductToCart(title, price, productImg, selectedZone, selectedSeatNumber);
+    addProductToCart(title, price, productImg);
     updateTotal();
 }
 
-function addProductToCart(title, price, productImg, selectedZone, selectedSeatNumber) {
+function addProductToCart(title, price, productImg) {
     var cartShopBox = document.createElement('div');
     cartShopBox.classList.add("cart-box");
     var cartItems = document.getElementsByClassName('cart-content')[0];
@@ -134,7 +136,6 @@ function addProductToCart(title, price, productImg, selectedZone, selectedSeatNu
         <div class="details-box">
             <div class="cart-product-title">${title}</div>
             <div class="cart-price">RM ${price}</div>
-            <div class="cart-zone">${selectedZone} ${selectedSeatNumber}</div>
             <input type="number" value="1" class="cart-quantity">
         </div>
 
@@ -143,15 +144,16 @@ function addProductToCart(title, price, productImg, selectedZone, selectedSeatNu
             <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z"/>
         </svg>
         </div>`;
-        cartShopBox.innerHTML = cartBoxContent;
-        var cartItems = document.getElementById('cartContent');
-        cartItems.appendChild(cartShopBox);
-        
-        // Add event listeners to the newly created cart item
-        cartShopBox.querySelector('.cart-remove').addEventListener('click', removeCartItem);
-        cartShopBox.querySelector('.cart-quantity').addEventListener('change', quantityChanged);
-    
-        updateTotal();
+cartShopBox.innerHTML = cartBoxContent;
+cartItems.appendChild(cartShopBox);
+cartShopBox
+  .getElementsByClassName('cart-remove')[0]
+  .addEventListener('click', removeCartItem);
+cartShopBox
+  .getElementsByClassName('cart-quantity')[0]
+  .addEventListener('change', quantityChanged);
+
+   updateTotal();
 }
     
 
@@ -184,7 +186,8 @@ function openModal(modalId) {
 
 function goToSeat(musicShowName, musicShowPrice) {
     openModal('seatModal');
-    
+    populateSeatModal(musicShowName);
+    addButtonClicked();
 
     var productImg;
     switch (musicShowName) {
@@ -214,9 +217,7 @@ function goToSeat(musicShowName, musicShowPrice) {
                 break;
     }
 
-    selectedZone = document.getElementById('zoneSelect').value;
-    selectedSeatNumber = document.getElementById('seatSelect').value;
-    populateSeatModal(musicShowName);
+    addProductToCart(musicShowName, musicShowPrice, productImg);
     updateTotal();
 }
 
@@ -228,8 +229,7 @@ function populateSeatModal(musicShowName) {
             musicShowSelect.selectedIndex = i;
             break;
         }
-    }
-
+    }   
 }
 
 function closeModal(modalId) {
