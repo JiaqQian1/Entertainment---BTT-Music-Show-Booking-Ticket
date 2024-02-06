@@ -19,6 +19,9 @@
             $data = $stmt_result->fetch_assoc();    
             if($data['password'] === $password)
             {
+                session_start();
+                $_SESSION['username'] = $data['username'];
+
                 echo '<script>alert("Login Successfully!!!");';
                 echo 'window.location.href = "index.html";</script>';
             }

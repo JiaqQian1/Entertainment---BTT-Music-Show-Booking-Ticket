@@ -48,14 +48,11 @@ body{
     color: #fff;
 }
 
-.menu ul li a{
-    text-decoration: none;
-    color: #fff;
-}
+
 .menu ul li img{
     height:40px;
     width:60px;
-    margin-left:2px;
+    margin-left:0px;
 }
 
 .active, .menu ul li:hover {
@@ -207,6 +204,11 @@ button:hover
 #account img 
 {
     border-radius: 10px;
+}
+
+#account svg{
+    width:30px;
+    height:30px;
 }
 
 table 
