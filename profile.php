@@ -147,14 +147,18 @@ if ($resultHistory->num_rows > 0) {
     echo "</thead>";
     echo "<tbody>";
     echo "<tr>";
-    echo "<td colspan='6'>No purchase history available.</td>";
+    echo "<td colspan='5'>No purchase history available.</td>";
     echo "</tr>";
+    echo "</tbody>";
+    echo "</table>";
+    echo "</div>";
+    echo "</section>";
 }
 
 $conn->close();
 ?>
-
-<?php @include 'footer.php'; ?>
+<br>
 <script src="./JS/UserProfile.js"></script>
+<?php @include 'footer.php'; ?>
 </body>
 </html>
