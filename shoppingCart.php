@@ -1,4 +1,3 @@
-<?php include("dbconnection.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -266,6 +265,28 @@
     </div>
 
 <?php
+// Start the session
+session_start();
+
+// Check if the user is not logged in
+if (!isset($_SESSION['username'])) {
+    // Redirect to the login page
+    header("Location: ./loginform.php");
+    exit();
+}
+
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "musicshow";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if form fields are set and not empty
@@ -289,6 +310,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "All form fields are required";
     }
 }
+$conn->close();
 ?>
 
 </body>
