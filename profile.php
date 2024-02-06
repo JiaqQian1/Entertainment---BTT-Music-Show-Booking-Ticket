@@ -27,7 +27,7 @@
                 </ul>
             </div>
         </li>
-        <li><a href="./shoppingCart.html"><i class="fa fa-hand-o-up"></i>Booking Now</a></li>
+        <li><a href="./shoppingCart.php"><i class="fa fa-hand-o-up"></i>Booking Now</a></li>
         <li><a href="./about us.html"><i class="fa fa-user"></i>About Us</a></li>
         <li><a href="./contact us.html"><i class="fa fa-phone"></i>Contact Us</a></li>
         <li>

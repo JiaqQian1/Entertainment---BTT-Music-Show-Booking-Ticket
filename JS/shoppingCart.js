@@ -113,7 +113,12 @@ function addCartClicked(event) {
     var title = shopProducts.getElementsByClassName('product-title')[0].innerText;
     var price = shopProducts.getElementsByClassName('price')[0].innerText;
     var productImg = shopProducts.getElementsByClassName('cart-img')[0].src;
-    addProductToCart(title, price, productImg);
+    var seatSelect = shopProducts.parentElement.getElementsByClassName('seatSelect')[0];
+    var selectedSeat = seatSelect.options[seatSelect.selectedIndex].value;
+    var zoneSelect = shopProducts.parentElement.getElementsByClassName('zoneSelect')[0];
+    var selectedZone = zoneSelect.options[zoneSelect.selectedIndex].value;
+    
+    addProductToCart(title, price, productImg, selectedSeat, selectedZone);
     updateTotal();
 }
 
