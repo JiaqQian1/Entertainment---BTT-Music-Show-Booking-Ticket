@@ -100,7 +100,7 @@ footer p {
 
 <h1>Comment and Rating </h1>
 
-<form action="/submit-feedback" method="post">
+<form id="ratingForm" method="post">
     <p><label for="username">Your Name:</label>
     <input type="text" id="username" name="username" required></p>
 
@@ -115,31 +115,30 @@ footer p {
 
     <p><button type="submit">Submit Feedback</button></p>
 </form>
-<?php
+<script>
+    document.getElementById("ratingForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["rating"]) && isset($_POST["comments"])) {
-        $username = htmlspecialchars($_POST["username"]);
-        $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-        $rating = intval($_POST["rating"]);
-        $comments = htmlspecialchars($_POST["comments"]);
+        // Get form data
+        var formData = new FormData(document.getElementById("ratingForm"));
 
-        $sql = "INSERT INTO feedback (username, email, rating, comments) 
-                VALUES ('$username', '$email', '$rating', '$comments')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "<h2>Thank you for your feedback, $username!</h2>";
-            echo "<p>Email: $email</p>";
-            echo "<p>Rating: $rating/5</p>";
-            echo "<p>Comments: $comments</p>";
-        } else {
-            echo "<p>Error: " . $sql . "<br>" . $conn->error . "</p>";
-        }
-    } else {
-        echo "<p>Form submission is incomplete. Please fill in all required fields.</p>";
-    }
-}
-?>
+        // Use Fetch API to send an asynchronous POST request
+        fetch("submitfeedback.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Handle the response (display a message or take other actions)
+            alert(data); // Display an alert with the server response
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+</script>
+</body>
+</html>
 
 <?php @include 'footer.php'; ?>
 </body>
