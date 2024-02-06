@@ -37,6 +37,42 @@ function addCustomer($customerId, $customerName, $customerEmail, $customerTicket
     return mysqli_query($con, $sql);
 }
 
+// Function to delete a customer from the database
+function deleteCustomer($customerId) {
+    global $con;
+    $sql = "DELETE FROM customers WHERE id = '$customerId'";
+
+    return mysqli_query($con, $sql);
+}
+
+// Handle delete request
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['deleteCustomerId'])) {
+    $deleteCustomerId = $_GET['deleteCustomerId'];
+
+    if (deleteCustomer($deleteCustomerId)) {
+        echo "Customer deleted successfully!";
+    } else {
+        echo "Error deleting customer: " . mysqli_error($con);
+    }
+}
+
+// Handle form submissions
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["addCustomer"])) {
+        $customerId = $_POST["customerId"];
+        $customerName = $_POST["customerName"];
+        $customerEmail = $_POST["customerEmail"];
+        $customerTicket = $_POST["customerTicket"];
+
+        if (addCustomer($customerId, $customerName, $customerEmail, $customerTicket)) {
+            echo "Customer added successfully!";
+        } else {
+            echo "Error adding customer: " . mysqli_error($con);
+        }
+    }
+}
+
+
 // Fetch existing customers
 $customers = getCustomers();
 ?>
@@ -56,26 +92,32 @@ $customers = getCustomers();
         <h1>Customer List</h1>
 
         <!-- Display existing customers -->
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Ticket</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($customers as $customer) : ?>
-                    <tr>
-                        <td><?= $customer['id']; ?></td>
-                        <td><?= $customer['name']; ?></td>
-                        <td><?= $customer['email']; ?></td>
-                        <td><?= $customer['ticket']; ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+      <!-- Display existing customers -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Ticket</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($customers as $customer) : ?>
+            <tr>
+                <td><?= $customer['id']; ?></td>
+                <td><?= $customer['name']; ?></td>
+                <td><?= $customer['email']; ?></td>
+                <td><?= $customer['ticket']; ?></td>
+                <td>
+                    <a href="?deleteCustomerId=<?= $customer['id']; ?>">Delete</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
     </div>
 
 </section>
