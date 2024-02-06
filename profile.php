@@ -47,7 +47,7 @@ session_start();
 // Check if the user is not logged in
 if (!isset($_SESSION['username'])) {
     // Redirect to the login page
-    header("Location: ./loginform.html");
+    header("Location: ./loginform.php");
     exit();
 }
 
@@ -118,7 +118,6 @@ if ($resultHistory->num_rows > 0) {
     // Output data of the purchase history
     while ($rowHistory = $resultHistory->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $rowHistory["id"] . "</td>";
         echo "<td>" . $rowHistory["music_show"] . "</td>";
         echo "<td>" . $rowHistory["show_type"] . "</td>";
         echo "<td>" . $rowHistory["show_date"] . "</td>";
