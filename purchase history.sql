@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2024 at 05:25 PM
+-- Generation Time: Feb 06, 2024 at 12:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -42,7 +42,8 @@ CREATE TABLE `purchase_history` (
 --
 
 INSERT INTO `purchase_history` (`id`, `login_id`, `music_show`, `show_type`, `show_date`, `show_time`, `show_location`) VALUES
-(1, 1, 'BlackPink Concert', 'Concert', '2023-06-15', '00:06:06', 'The Sail Melaka');
+(1, 1, 'BlackPink Concert', 'Concert', '2023-06-15', '00:06:06', 'The Sail Melaka'),
+(2, 2, 'Xue Zhi Qian Concert', 'Concert', '2023-05-16', '00:06:06', 'The Sail Melaka');
 
 --
 -- Indexes for dumped tables
@@ -52,8 +53,9 @@ INSERT INTO `purchase_history` (`id`, `login_id`, `music_show`, `show_type`, `sh
 -- Indexes for table `purchase_history`
 --
 ALTER TABLE `purchase_history`
-  DROP PRIMARY KEY,
-  ADD PRIMARY KEY (`id`, `login_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_login_id_history` (`login_id`);
+
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -62,7 +64,7 @@ ALTER TABLE `purchase_history`
 -- AUTO_INCREMENT for table `purchase_history`
 --
 ALTER TABLE `purchase_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

@@ -131,7 +131,24 @@ if ($resultHistory->num_rows > 0) {
     echo "</div>";
     echo "</section>";
 } else {
-    echo "<p>No purchase history available.</p>";
+    echo "<section>";
+    echo "<h2>Purchase History</h2>";
+    echo "<div id='history'>";
+    echo "<table>";
+    echo "<thead>";
+    echo "<tr>";
+    echo "<th>No.</th>";
+    echo "<th>Music Shows</th>";
+    echo "<th>Type</th>";
+    echo "<th>Date</th>";
+    echo "<th>Time</th>";
+    echo "<th>Location</th>";
+    echo "</tr>";
+    echo "</thead>";
+    echo "<tbody>";
+    echo "<tr>";
+    echo "<td colspan='6'>No purchase history available.</td>";
+    echo "</tr>";
 }
 
 $conn->close();
