@@ -23,7 +23,7 @@
                 $_SESSION['username'] = $data['username'];
 
                 echo '<script>alert("Login Successfully!!!");';
-                echo 'window.location.href = "index.html";</script>';
+                echo 'window.location.href = "no Log in.html";</script>';
             }
             else
             {
