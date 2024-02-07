@@ -123,7 +123,7 @@ $conn->close();
                 <div class="product-title">BlackPink Concert</div>
                 <div class="price">RM 150</div>
                 <label>Select your Zone</label>
-                <select class="musicShow" style="width:150px; width:100px;font-size:20px;">
+                <select class="zoneSelect" style="width:150px; width:100px;font-size:20px;">
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="C">C</option>
@@ -149,7 +149,7 @@ $conn->close();
                 </select>
                 <br>
                 <button onclick="goToSeat('BlackPink Concert', 150)">Seat Preview</button>
-                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
+                <button class="addcart" onclick="addCartClicked(cart-img, product-title, price, zoneSelect, seatSelect)">Add to Cart</button>;
                 
             </div>
 
@@ -184,7 +184,7 @@ $conn->close();
                 </select>
                 <br>
                 <button onclick="goToSeat('Maneskin Live Band', 80)">Seat Preview</button>
-                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
+                <button class="addcart" onclick="addCartClicked(cart-img, product-title, price, zoneSelect, seatSelect)">Add to Cart</button>;
             </div>
 
             <div class="items">
@@ -218,7 +218,7 @@ $conn->close();
                 </select>
                 <br>
                 <button onclick="goToSeat('Vienna Boys Choir', 65)">Seat Preview</button>
-                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
+                <button class="addcart" onclick="addCartClicked(cart-img, product-title, price, zoneSelect, seatSelect)">Add to Cart</button>;
             </div>
 
             <div class="items">
@@ -252,7 +252,7 @@ $conn->close();
                 </select>
                 <br>
                 <button onclick="goToSeat('Angela Zhang Concert', 165)">Seat Preview</button>
-                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
+                <button class="addcart" onclick="addCartClicked(cart-img, product-title, price, zoneSelect, seatSelect)">Add to Cart</button>;
             </div>
 
             <div class="items">
@@ -286,7 +286,7 @@ $conn->close();
                 </select>
                 <br>
                 <button onclick="goToSeat('ColdPlay Live Band', 55)">Seat Preview</button>
-                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
+                <button class="addcart" onclick="addCartClicked(cart-img, product-title, price, zoneSelect, seatSelect)">Add to Cart</button>;
             </div>
 
             <div class="items">
@@ -320,7 +320,7 @@ $conn->close();
                 </select>
                 <br>
                 <button onclick="goToSeat('Marron 5 Live Band', 65)">Seat Preview</button>
-                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
+                <button class="addcart" onclick="addCartClicked(cart-img, product-title, price, zoneSelect, seatSelect)">Add to Cart</button>;
             </div>
 
             <div class="items">
@@ -354,7 +354,7 @@ $conn->close();
                 </select>
                 <br>
                 <button onclick="goToSeat('The Sixteen Choir', 75)">Seat Preview</button>
-                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
+                <button class="addcart" onclick="addCartClicked(cart-img, product-title, price, zoneSelect, seatSelect)">Add to Cart</button>;
             </div>
 
             <div class="items">
@@ -389,7 +389,7 @@ $conn->close();
                 </select>
                 <br>
                 <button onclick="goToSeat('Xue ZhiQian Concert', 200)">Seat Preview</button>
-                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
+                <button class="addcart" onclick="addCartClicked(cart-img, product-title, price, zoneSelect, seatSelect)">Add to Cart</button>;
             </div>
         </div>
     </div>

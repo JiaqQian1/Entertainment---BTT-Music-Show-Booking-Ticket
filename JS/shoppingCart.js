@@ -42,13 +42,9 @@ function ready(){
     {
         var button = addCart[i];
         button
-        .addEventListener('click', addCartClicked);
-    }
+        .addEventListener('click', function() { addCartClicked(this); });
 
-    //add to cart btn
-    document
-    .getElementsByClassName("addcart")[0]
-    .addEventListener("click", addCartClicked);
+    }
 
     /*Buy button*/
     document
@@ -84,7 +80,6 @@ function removeCartItem(event) {
     
     if (cartItem) {
         cartItem.remove();
-        updateTotal();
     }
 
     updateTotal();
@@ -97,14 +92,15 @@ function quantityChanged(event){
     }
     /*the quantity is at least 1*/
 
-    updateTotal();/*remarks*/
+    updateTotal();
 }
 
 /*Add to cart*/
 function addCartClicked() {
     alert("Your selected seat is saved");
 
-    var shopProducts = button.parentElement;
+    var shopProducts = button.parentNode.parentNode;
+
     var title = shopProducts.getElementsByClassName('product-title')[0].innerText;
     var price = shopProducts.getElementsByClassName('price')[0].innerText;
     var productImg = shopProducts.getElementsByClassName('cart-img')[0].src;
@@ -120,7 +116,8 @@ function addCartClicked() {
 function addProductToCart(title, price, productImg, selectedSeat, selectedZone) {
     var cartShopBox = document.createElement('div');
     cartShopBox.classList.add("cart-box");
-    var cartItems = document.getElementsByClassName('cart-content')[0];
+    var cartItems = document.querySelector('.cart-content');
+
     var cartItemsNames = cartItems.getElementsByClassName('cart-product-title');
     
     for (var i = 0; i < cartItemsNames.length; i++) {

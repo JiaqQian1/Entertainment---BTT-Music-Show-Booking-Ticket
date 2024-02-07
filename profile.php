@@ -18,7 +18,7 @@
         </a>
     </div>
     <ul>
-        <li class="active"><a href="./index.html"><i class="fa fa-home"></i>Home</a></li>
+        <li class="active"><a href="./no Log In.html"><i class="fa fa-home"></i>Home</a></li>
         <li><a href="#"><i class="fa fa-music"></i>Music Shows</a>
             <div class="submenu">
                 <ul>
@@ -32,7 +32,7 @@
         <li><a href="./about us.html"><i class="fa fa-user"></i>About Us</a></li>
         <li><a href="./contact us.html"><i class="fa fa-phone"></i>Contact Us</a></li>
         <li>
-                <a href="./logoutform.html" class="btn btn-hover">
+                <a href="./loginform.php" class="btn btn-hover">
                     <span>Log Out</span>
                 </a>
             </li>
