@@ -12,22 +12,22 @@
 <body>
     <div class="wrapper">
         <h2>Payment Form</h2>
-        <form method="POST">
+        <form method="POST" action="payment.php">
             <h4>Account</h4>
             <div class="input-group">
                 <div class="input-box">
-                    <input type="text" placeholder="Full Name" required class="name">
+                    <input type="text" placeholder="Full Name" required class="name" name="full_name">
                     <i class="fa fa-user icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Nick Name" required class="name">
+                    <input type="text" placeholder="Nick Name" required class="name"name="nick_name">
                     <i class="fa fa-user icon"></i>
                 </div>
             </div>
 
             <div class="input-group">
                 <div class="input-box">
-                    <input type="email" placeholder="Email Adress" required class="name">
+                    <input type="email" placeholder="Email Adress" required class="name" name="email">
                     <i class="fa fa-envelope icon" aria-hidden="true"></i>
                 </div>
             </div>
@@ -35,15 +35,15 @@
             <div class="input-group">
                 <div class="input-box">
                     <h4>Date of Birth</h4>
-                    <input type="text" placeholder="DD" class="dob">
-                    <input type="text" placeholder="MM" class="dob">
-                    <input type="text" placeholder="YYYY" class="dob">
+                    <input type="text" placeholder="DD" class="dob" name="dob_day">
+                    <input type="text" placeholder="MM" class="dob" name="dob_month">
+                    <input type="text" placeholder="YYYY" class="dob" name="dob_year">
                 </div>
                 <div class="input-box">
                     <h4>Gender</h4>
-                    <input type="radio" id="b1" name="gender" checked class="radio">
+                    <input type="radio" id="b1" name="gender" checked class="radio" name="gender">
                     <label for="b1">Male</label>
-                    <input type="radio" id="b2" name="gender" checked class="radio">
+                    <input type="radio" id="b2" name="gender" checked class="radio" name="gender">
                     <label for="b2">Female</label>
                 </div>
             </div>
@@ -51,35 +51,35 @@
             <div class="input-group">
                 <div class="input-box">
                     <h4>Payment  Details</h4>
-                    <input type="radio" name="pay" id="bc1" checked class="radio">
+                    <input type="radio" name="pay" id="bc1" checked class="radio" name="pay">
                     <label for="bc1"><span><i class="fa fa-cc-visa" aria-hidden="true"></i>Credit Card</span></label>
-                    <input type="radio" name="pay" id="bc2" checked class="radio">
+                    <input type="radio" name="pay" id="bc2" checked class="radio" name="pay">
                     <label for="bc2"><span><i class="fa fa-cc-paypal" aria-hidden="true"></i>Paypal</span></label>
                 </div>
             </div>
 
             <div class="input-group">
                 <div class="input-box">
-                    <input type="tel" placeholder="Card Number" required class="name">
+                    <input type="tel" placeholder="Card Number" required class="name" name="card_number">
                     <i class="fa fa-credit-card icon" aria-hidden="true"></i>
                 </div>
             </div>
 
             <div class="input-group">
                 <div class="input-box">
-                    <input type="tel" placeholder="Card CVC" required class="name">
+                    <input type="tel" placeholder="Card CVC" required class="name" name="card_cvc">
                     <i class="fa fa-user icon"></i>
                 </div>
-                <div class="input-box">
-                    <select>
-                        <option>01 JUN</option>
-                        <option>02 JUN</option>
-                        <option>03 JUN</option>
+                <div class="input-box" >
+                    <select name="expiry_month">
+                        <option>07 February</option>
+                        <option>08 February</option>
+                        <option>09 February</option>
                     </select>
-                    <select>
-                        <option>2020</option>
-                        <option>2021</option>
-                        <option>2022</option>
+                    <select name="expiry_year">
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
                     </select>
                 </div>
             </div>

@@ -45,3 +45,4 @@ CREATE TABLE `profiles` (
 INSERT INTO `profiles` (`login_id`, `name`, `email`, `contact_number`, `address`, `gender`) VALUES
 (1, 'Pei Xuan', 'teopx@gmail.com', '01376435765', '66, Taman Bukit Beruang, Jalan Bukit Beruang, 75450, Ayer Keroh, Melaka', 'Female'),
 (2, 'Wen Xin', 'wwxx@gmail.com', '0113456785', '88, Taman Bukit Beruang 2, Jalan Bukit Beruang, 75450, Ayeh Keroh, Melaka', 'Female');
+
