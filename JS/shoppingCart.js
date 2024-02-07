@@ -37,7 +37,7 @@ function ready(){
         input.addEventListener('change', quantityChanged);
     }
 
-    var addCart = document.getElementsByClassName('add-cart')
+    var addCart = document.getElementsByClassName('addcart')
     for (var i=0; i<addCart.length; i++)
     {
         var button = addCart[i];
@@ -47,7 +47,7 @@ function ready(){
 
     //add to cart btn
     document
-    .getElementsByClassName("add-cart")[0]
+    .getElementsByClassName("addcart")[0]
     .addEventListener("click", addCartClicked);
 
     /*Buy button*/
@@ -57,12 +57,8 @@ function ready(){
 }
 /* remarks */
    
-function addButtonClicked(){
 
-    alert("Your items is added to the cart");
-}
-
-function buyButtonClicked(){;
+function buyButtonClicked(){
     var cartContent = document.querySelector(".cart-content");
     
     // Check if there are any child nodes inside the card-content
@@ -105,24 +101,23 @@ function quantityChanged(event){
 }
 
 /*Add to cart*/
-function addCartClicked(event) {
+function addCartClicked() {
     alert("Your selected seat is saved");
-    
-    var button = event.target;
+
     var shopProducts = button.parentElement;
     var title = shopProducts.getElementsByClassName('product-title')[0].innerText;
     var price = shopProducts.getElementsByClassName('price')[0].innerText;
     var productImg = shopProducts.getElementsByClassName('cart-img')[0].src;
-    var seatSelect = shopProducts.parentElement.getElementsByClassName('seatSelect')[0];
+    var seatSelect = shopProducts.getElementsByClassName('seatSelect')[0];
     var selectedSeat = seatSelect.options[seatSelect.selectedIndex].value;
-    var zoneSelect = shopProducts.parentElement.getElementsByClassName('zoneSelect')[0];
+    var zoneSelect = shopProducts.getElementsByClassName('zoneSelect')[0];
     var selectedZone = zoneSelect.options[zoneSelect.selectedIndex].value;
     
     addProductToCart(title, price, productImg, selectedSeat, selectedZone);
     updateTotal();
 }
 
-function addProductToCart(title, price, productImg) {
+function addProductToCart(title, price, productImg, selectedSeat, selectedZone) {
     var cartShopBox = document.createElement('div');
     cartShopBox.classList.add("cart-box");
     var cartItems = document.getElementsByClassName('cart-content')[0];
@@ -141,6 +136,7 @@ function addProductToCart(title, price, productImg) {
         <div class="details-box">
             <div class="cart-product-title">${title}</div>
             <div class="cart-price">RM ${price}</div>
+            <div class="seat">${selectedZone} ${selectedSeat}</div>
             <input type="number" value="1" class="cart-quantity">
         </div>
 
@@ -189,41 +185,10 @@ function openModal(modalId) {
     modal.style.display = 'block';
 }
 
-function goToSeat(musicShowName, musicShowPrice) {
+function goToSeat(musicShowName) {
     openModal('seatModal');
     populateSeatModal(musicShowName);
-    addButtonClicked();
 
-    var productImg;
-    switch (musicShowName) {
-        case 'BlackPink Concert':
-            productImg = './images/blackpinkconcert.jpg';
-            break;
-        case 'Maneskin Live Band':
-            productImg = './images/maneskinliveband.jpg';
-            break;
-        case 'Vienna Boys Choir':
-            productImg = './images/viennaboyschoir.jpg';
-            break;
-        case 'Angela Zhang Concert':
-            productImg = './images/angelazhangconcert.jpg';
-            break;
-        case 'ColdPlay Live Band':
-            productImg = './images/coldplay.jpg';
-            break;
-        case 'Marron 5 Live Band':
-            productImg = './images/MARRON5.jpg';
-            break;
-        case 'The Sixteen Choir':
-            productImg = './images/thesixteen.jpg';
-            break;
-        case 'Xue ZhiQian Concert':
-                productImg = './images/xuezhiqianconcert.jpg';
-                break;
-    }
-
-    addProductToCart(musicShowName, musicShowPrice, productImg);
-    updateTotal();
 }
 
 

@@ -1,3 +1,52 @@
+<?php
+// Start the session
+session_start();
+
+// Check if the user is not logged in
+if (!isset($_SESSION['username'])) {
+    // Redirect to the login page
+    header("Location: ./loginform.php");
+    exit();
+}
+
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "musicshow";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if form fields are set and not empty
+    if (isset($_POST["music_show"]) && isset($_POST["price"]) && isset($_POST["quantity"]) && isset($_POST["seat_number"]) && isset($_POST["zone"])) {
+        // Prepare and bind the SQL statement
+        $stmt = $conn->prepare("INSERT INTO cart (music_show, price, quantity, seat_number, zone) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssiss", $music_show, $price, $quantity, $seat_number, $zone);
+
+        // Set parameters and execute
+        $music_show = $_POST["music_show"];
+        $price = $_POST["price"];
+        $quantity = $_POST["quantity"];
+        $seat_number = $_POST["seat_number"];
+        $zone = $_POST["zone"];
+        $stmt->execute();
+
+        echo "New records created successfully";
+
+        $stmt->close();
+    } else {
+        echo "All form fields are required";
+    }
+}
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,12 +76,12 @@
                     </ul>
                 </div>
             </li>
-            <li><a href="./shoppingCart.html"><i class="fa fa-hand-o-up"></i>Booking Now</a></li>
+            <li><a href="./shoppingCart.php"><i class="fa fa-hand-o-up"></i>Booking Now</a></li>
             <li><a href="./about us.html"><i class="fa fa-user"></i>About Us</a></li>
             <li><a href="./contact us.html"><i class="fa fa-phone"></i>Contact Us</a></li>
             <li>
-                <a href="./loginform.html" class="btn btn-hover">
-                    <span>Log in</span>
+                <a href="./logoutform.html" class="btn btn-hover">
+                    <span>Log Out</span>
                 </a>
             </li>
             <li>
@@ -73,55 +122,274 @@
                 <img src="./images/blackpinkconcert.jpg" class="cart-img">
                 <div class="product-title">BlackPink Concert</div>
                 <div class="price">RM 150</div>
-                <button onclick="goToSeat('BlackPink Concert', 150)">Buy Now</button>
+                <label>Select your Zone</label>
+                <select class="musicShow" style="width:150px; width:100px;font-size:20px;">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+                <br>
+                <label>Select Seat Number</label>
+                <select class="seatSelect" style="width:150px; width:100px;font-size:20px;">
+                    <option value="100">100</option>
+                    <option value="101">101</option>
+                    <option value="102">102</option>
+                    <option value="103">103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
+                    <option value="106">106</option>
+                    <option value="107">107</option>
+                    <option value="108">108</option>
+                    <option value="109">109</option>
+                    <option value="110">110</option>
+                    <option value="111">111</option>
+                    <option value="112">112</option>
+                </select>
+                <br>
+                <button onclick="goToSeat('BlackPink Concert', 150)">Seat Preview</button>
+                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
+                
             </div>
+
             <div class="items">
                 <img src="./images/maneskinliveband.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="product-title">Maneskin Live Band</div>
                 <div class="price">RM 80</div>
-                <button onclick="goToSeat('Maneskin Live Band', 80)">Buy Now</button>
+                <label>Select your Zone</label>
+                <select class="musicShow" style="width:150px; width:100px;font-size:20px;">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            <br>
+                <label>Select Seat Number</label>
+                <select class="seatSelect" style="width:150px; width:100px;font-size:20px;">
+                    <option value="100">100</option>
+                    <option value="101">101</option>
+                    <option value="102">102</option>
+                    <option value="103">103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
+                    <option value="106">106</option>
+                    <option value="107">107</option>
+                    <option value="108">108</option>
+                    <option value="109">109</option>
+                    <option value="110">110</option>
+                    <option value="111">111</option>
+                    <option value="112">112</option>
+                </select>
+                <br>
+                <button onclick="goToSeat('Maneskin Live Band', 80)">Seat Preview</button>
+                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
             </div>
 
             <div class="items">
                 <img src="./images/viennaboyschoir.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="product-title">Vienna Boys Choir</div>
                 <div class="price">RM 65</div>
-                <button onclick="goToSeat('Vienna Boys Choir', 65)">Buy Now</button>
+                <label>Select your Zone</label>
+                <select class="musicShow" style="width:150px; width:100px;font-size:20px;">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+                <br>
+                <label>Select Seat Number</label>
+                <select class="seatSelect" style="width:150px; width:100px;font-size:20px;">
+                    <option value="100">100</option>
+                    <option value="101">101</option>
+                    <option value="102">102</option>
+                    <option value="103">103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
+                    <option value="106">106</option>
+                    <option value="107">107</option>
+                    <option value="108">108</option>
+                    <option value="109">109</option>
+                    <option value="110">110</option>
+                    <option value="111">111</option>
+                    <option value="112">112</option>
+                </select>
+                <br>
+                <button onclick="goToSeat('Vienna Boys Choir', 65)">Seat Preview</button>
+                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
             </div>
 
             <div class="items">
                 <img src="./images/angelazhangconcert.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="product-title">Angela Zhang Concert</div>
                 <div class="price">RM 165</div>
-                <button onclick="goToSeat('Angela Zhang Concert', 165)">Buy Now</button>
+                <label>Select your Zone</label>
+                <select class="musicShow" style="width:150px; width:100px;font-size:20px;">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+                <br>
+                <label>Select Seat Number</label>
+                <select class="seatSelect" style="width:150px; width:100px;font-size:20px;">
+                    <option value="100">100</option>
+                    <option value="101">101</option>
+                    <option value="102">102</option>
+                    <option value="103">103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
+                    <option value="106">106</option>
+                    <option value="107">107</option>
+                    <option value="108">108</option>
+                    <option value="109">109</option>
+                    <option value="110">110</option>
+                    <option value="111">111</option>
+                    <option value="112">112</option>
+                </select>
+                <br>
+                <button onclick="goToSeat('Angela Zhang Concert', 165)">Seat Preview</button>
+                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
             </div>
 
             <div class="items">
                 <img src="./images/coldplay.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="product-title">ColdPlay Live Band</div>
                 <div class="price">RM 55</div>
-                <button onclick="goToSeat('ColdPlay Live Band', 55)">Buy Now</button>
+                <label>Select your Zone</label>
+                <select class="musicShow" style="width:150px; width:100px;font-size:20px;">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+                <br>
+                <label>Select Seat Number</label>
+                <select class="seatSelect" style="width:150px; width:100px;font-size:20px;">
+                    <option value="100">100</option>
+                    <option value="101">101</option>
+                    <option value="102">102</option>
+                    <option value="103">103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
+                    <option value="106">106</option>
+                    <option value="107">107</option>
+                    <option value="108">108</option>
+                    <option value="109">109</option>
+                    <option value="110">110</option>
+                    <option value="111">111</option>
+                    <option value="112">112</option>
+                </select>
+                <br>
+                <button onclick="goToSeat('ColdPlay Live Band', 55)">Seat Preview</button>
+                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
             </div>
 
             <div class="items">
                 <img src="./images/MARRON5.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="product-title">Marron 5 Live Band</div>
                 <div class="price">RM 65</div>
-                <button onclick="goToSeat('Marron 5 Live Band', 65)">Buy Now</button>
+                <label>Select your Zone</label>
+                <select class="musicShow" style="width:150px; width:100px;font-size:20px;">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+                <br>
+                <label>Select Seat Number</label>
+                <select class="seatSelect" style="width:150px; width:100px;font-size:20px;">
+                    <option value="100">100</option>
+                    <option value="101">101</option>
+                    <option value="102">102</option>
+                    <option value="103">103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
+                    <option value="106">106</option>
+                    <option value="107">107</option>
+                    <option value="108">108</option>
+                    <option value="109">109</option>
+                    <option value="110">110</option>
+                    <option value="111">111</option>
+                    <option value="112">112</option>
+                </select>
+                <br>
+                <button onclick="goToSeat('Marron 5 Live Band', 65)">Seat Preview</button>
+                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
             </div>
 
             <div class="items">
                 <img src="./images/thesixteen.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="product-title">The Sixteen Choir</div>
                 <div class="price">RM 75</div>
-                <button onclick="goToSeat('The Sixteen Choir', 75)">Buy Now</button>
+                <label>Select your Zone</label>
+                <select class="musicShow" style="width:150px; width:100px;font-size:20px;">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+                <br>
+                <label>Select Seat Number</label>
+                <select class="seatSelect" style="width:150px; width:100px;font-size:20px;">
+                    <option value="100">100</option>
+                    <option value="101">101</option>
+                    <option value="102">102</option>
+                    <option value="103">103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
+                    <option value="106">106</option>
+                    <option value="107">107</option>
+                    <option value="108">108</option>
+                    <option value="109">109</option>
+                    <option value="110">110</option>
+                    <option value="111">111</option>
+                    <option value="112">112</option>
+                </select>
+                <br>
+                <button onclick="goToSeat('The Sixteen Choir', 75)">Seat Preview</button>
+                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
             </div>
 
             <div class="items">
                 <img src="./images/xuezhiqianconcert.jpg" class="cart-img" style="height: 240px; width: 320px;">
                 <div class="product-title">Xue ZhiQian Concert</div>
                 <div class="price">RM 200</div>
-                <button onclick="goToSeat('Xue ZhiQian Concert', 200)">Buy Now</button>
+                <label>Select your Zone</label>
+                <select class="musicShow" style="width:150px; width:100px;font-size:20px;">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+                <br>
+
+                <label>Select Seat Number</label>
+                <select class="seatSelect" style="width:150px; width:100px;font-size:20px;">
+                    <option value="100">100</option>
+                    <option value="101">101</option>
+                    <option value="102">102</option>
+                    <option value="103">103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
+                    <option value="106">106</option>
+                    <option value="107">107</option>
+                    <option value="108">108</option>
+                    <option value="109">109</option>
+                    <option value="110">110</option>
+                    <option value="111">111</option>
+                    <option value="112">112</option>
+                </select>
+                <br>
+                <button onclick="goToSeat('Xue ZhiQian Concert', 200)">Seat Preview</button>
+                <button class="addcart" onclick="addCartClicked()">Add to Cart</button>;
             </div>
         </div>
     </div>
@@ -225,93 +493,13 @@
                     <div class="seat">E111</div>
                     <div class="seat">E112</div>
                 </div>
-                 </div> 
+                </div> 
 
-                <label>Select your Zone</label>
-                <select id="musicShow" style="width:150px; width:200px;font-size:20px;">
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-
-                <label>Select Seat Number</label>
-                <select id="seatSelect" style="width:150px; width:200px;font-size:20px;">
-                    <option value="100">100</option>
-                    <option value="101">101</option>
-                    <option value="102">102</option>
-                    <option value="103">103</option>
-                    <option value="104">104</option>
-                    <option value="105">105</option>
-                    <option value="106">106</option>
-                    <option value="107">107</option>
-                    <option value="108">108</option>
-                    <option value="109">109</option>
-                    <option value="110">110</option>
-                    <option value="111">111</option>
-                    <option value="112">112</option>
-                </select>
-                <br><br>
-                <div class="add-cart">
-                <svg class="w-[40px] h-[40px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 21">
-                    <path d="M15 14H7.78l-.5-2H16a1 1 0 0 0 .962-.726l.473-1.655A2.968 2.968 0 0 1 16 10a3 3 0 0 1-3-3 3 3 0 0 1-3-3 2.97 2.97 0 0 1 .184-1H4.77L4.175.745A1 1 0 0 0 3.208 0H1a1 1 0 0 0 0 2h1.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 10 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3Zm-8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm8 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
-                    <path d="M19 3h-2V1a1 1 0 0 0-2 0v2h-2a1 1 0 1 0 0 2h2v2a1 1 0 0 0 2 0V5h2a1 1 0 1 0 0-2Z"/>
-                    <p>Add to Cart</p>
-                  </svg>
                 </div>
             </div>
         </div>
     </div>
 
-<?php
-// Start the session
-session_start();
-
-// Check if the user is not logged in
-if (!isset($_SESSION['username'])) {
-    // Redirect to the login page
-    header("Location: ./loginform.php");
-    exit();
-}
-
-// Database connection parameters
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "musicshow";
-
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if form fields are set and not empty
-    if (isset($_POST["music_show"]) && isset($_POST["price"]) && isset($_POST["quantity"]) && isset($_POST["seat_number"]) && isset($_POST["zone"])) {
-        // Prepare and bind the SQL statement
-        $stmt = $conn->prepare("INSERT INTO cart (music_show, price, quantity, seat_number, zone) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssiss", $music_show, $price, $quantity, $seat_number, $zone);
-
-        // Set parameters and execute
-        $music_show = $_POST["music_show"];
-        $price = $_POST["price"];
-        $quantity = $_POST["quantity"];
-        $seat_number = $_POST["seat_number"];
-        $zone = $_POST["zone"];
-        $stmt->execute();
-
-        echo "New records created successfully";
-
-        $stmt->close();
-    } else {
-        echo "All form fields are required";
-    }
-}
-$conn->close();
-?>
 
 </body>
 </html>
