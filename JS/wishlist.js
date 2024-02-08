@@ -1,47 +1,47 @@
-// card
+
 let cardIcon = document.querySelector('#wish-icon');
 let card = document.querySelector('.card');
 let closeCard = document.querySelector('#close-card');
 
-// open card
+
 cardIcon.onclick = () => {
     card.classList.add("active");
 }
 
-// close card
+
 closeCard.onclick = () => {
     card.classList.remove("active");
 }
 
-// card working js
+
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
 } else {
     ready();
 }
 
-// Making Function
+
 function ready() {
-    // Remove item from card
+
     var removeCardButtons = document.getElementsByClassName('card-remove');
 
     for (var i = 0; i < removeCardButtons.length; i++) {
         var button = removeCardButtons[i];
         button.addEventListener('click', removeCardItem);
     }
-    // quantity changes
+
     var quantityInputs = document.getElementsByClassName("card-quantity");
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i];
         input.addEventListener("change", quantityChanged);
     }
-    //Add to carrd
+
     var addCard = document.getElementsByClassName("add-card");
     for (var i = 0; i < addCard.length; i++){
         var button = addCard[i];
         button.addEventListener("click", addCardClicked);
     }
-    //add to card button
+
     document
     .getElementsByClassName("btn-add")[0]
     .addEventListener("click",addButtonClicked);
