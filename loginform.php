@@ -27,12 +27,12 @@
             }
             else
             {
-                echo '<script>alert("Invalid username and password...");';
+                echo '<script>alert("Invalid email and password...");';
                 echo 'window.location.href = "loginform.html";</script>';
             }
         }
         else{
-            echo '<script>alert("Invalid username and password...");';
+            echo '<script>alert("Invalid email and password...");';
                 echo 'window.location.href = "loginform.html";</script>';
         }
      }
