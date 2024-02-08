@@ -393,11 +393,11 @@
         background-color:rgb(221, 101, 101);
     }
 
-    #add-cart{
-        color:rgb(2, 187, 2);
+    .add-cart{
+        background-color:rgb(2, 187, 2);
 
     }
-    #add-cart:hover{
+    .add-cart:hover{
         font-weight:bold;
         background-color:rgb(97, 227, 97);
     }

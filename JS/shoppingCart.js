@@ -37,14 +37,18 @@ function ready(){
         input.addEventListener('change', quantityChanged);
     }
 
-    var addCart = document.getElementsByClassName('addcart')
+    var addCart = document.getElementsByClassName('add-cart')
     for (var i=0; i<addCart.length; i++)
     {
         var button = addCart[i];
         button
-        .addEventListener('click', function() { addCartClicked(this); });
-
+        .addEventListener('click', addCartClicked);
     }
+
+    //add to cart btn
+    document
+    .getElementsByClassName("add-cart")[0]
+    .addEventListener("click", addCartClicked);
 
     /*Buy button*/
     document
@@ -53,8 +57,12 @@ function ready(){
 }
 /* remarks */
    
+function addButtonClicked(){
 
-function buyButtonClicked(){
+    alert("Your items is added to the cart");
+}
+
+function buyButtonClicked(){;
     var cartContent = document.querySelector(".cart-content");
     
     // Check if there are any child nodes inside the card-content
@@ -80,6 +88,7 @@ function removeCartItem(event) {
     
     if (cartItem) {
         cartItem.remove();
+        updateTotal();
     }
 
     updateTotal();
@@ -92,32 +101,26 @@ function quantityChanged(event){
     }
     /*the quantity is at least 1*/
 
-    updateTotal();
+    updateTotal();/*remarks*/
 }
 
 /*Add to cart*/
-function addCartClicked() {
+function addCartClicked(event) {
     alert("Your selected seat is saved");
-
-    var shopProducts = button.parentNode.parentNode;
-
+    
+    var button = event.target;
+    var shopProducts = button.parentElement;
     var title = shopProducts.getElementsByClassName('product-title')[0].innerText;
     var price = shopProducts.getElementsByClassName('price')[0].innerText;
     var productImg = shopProducts.getElementsByClassName('cart-img')[0].src;
-    var seatSelect = shopProducts.getElementsByClassName('seatSelect')[0];
-    var selectedSeat = seatSelect.options[seatSelect.selectedIndex].value;
-    var zoneSelect = shopProducts.getElementsByClassName('zoneSelect')[0];
-    var selectedZone = zoneSelect.options[zoneSelect.selectedIndex].value;
-    
-    addProductToCart(title, price, productImg, selectedSeat, selectedZone);
+    addProductToCart(title, price, productImg);
     updateTotal();
 }
 
-function addProductToCart(title, price, productImg, selectedSeat, selectedZone) {
+function addProductToCart(title, price, productImg) {
     var cartShopBox = document.createElement('div');
     cartShopBox.classList.add("cart-box");
-    var cartItems = document.querySelector('.cart-content');
-
+    var cartItems = document.getElementsByClassName('cart-content')[0];
     var cartItemsNames = cartItems.getElementsByClassName('cart-product-title');
     
     for (var i = 0; i < cartItemsNames.length; i++) {
@@ -133,7 +136,6 @@ function addProductToCart(title, price, productImg, selectedSeat, selectedZone) 
         <div class="details-box">
             <div class="cart-product-title">${title}</div>
             <div class="cart-price">RM ${price}</div>
-            <div class="seat">${selectedZone} ${selectedSeat}</div>
             <input type="number" value="1" class="cart-quantity">
         </div>
 
@@ -182,10 +184,41 @@ function openModal(modalId) {
     modal.style.display = 'block';
 }
 
-function goToSeat(musicShowName) {
+function goToSeat(musicShowName, musicShowPrice) {
     openModal('seatModal');
     populateSeatModal(musicShowName);
+    addButtonClicked();
 
+    var productImg;
+    switch (musicShowName) {
+        case 'BlackPink Concert':
+            productImg = './images/blackpinkconcert.jpg';
+            break;
+        case 'Maneskin Live Band':
+            productImg = './images/maneskinliveband.jpg';
+            break;
+        case 'Vienna Boys Choir':
+            productImg = './images/viennaboyschoir.jpg';
+            break;
+        case 'Angela Zhang Concert':
+            productImg = './images/angelazhangconcert.jpg';
+            break;
+        case 'ColdPlay Live Band':
+            productImg = './images/coldplay.jpg';
+            break;
+        case 'Marron 5 Live Band':
+            productImg = './images/MARRON5.jpg';
+            break;
+        case 'The Sixteen Choir':
+            productImg = './images/thesixteen.jpg';
+            break;
+        case 'Xue ZhiQian Concert':
+                productImg = './images/xuezhiqianconcert.jpg';
+                break;
+    }
+
+    addProductToCart(musicShowName, musicShowPrice, productImg);
+    updateTotal();
 }
 
 
