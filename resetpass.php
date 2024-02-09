@@ -12,14 +12,14 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $adminemail = $_POST["email"]; // Corrected variable name
-    $newadminpassword = $_POST["newpassword"]; // Corrected variable name
+    $adminemail = $_POST["email"]; 
+    $newadminpassword = $_POST["newpassword"]; 
 
-    $checkEmailQuery = "SELECT * FROM login WHERE email = '$adminemail'"; // Corrected variable name
+    $checkEmailQuery = "SELECT * FROM login WHERE email = '$adminemail'"; 
     $result = $conn->query($checkEmailQuery);
 
     if ($result->num_rows > 0) {
-        $sql = "UPDATE login SET password = '$newadminpassword' WHERE email = '$adminemail'"; // Corrected variable name
+        $sql = "UPDATE login SET password = '$newadminpassword' WHERE email = '$adminemail'"; 
 
         if ($conn->query($sql) === TRUE) {
             echo '<script>alert("Reset Password Successfully!!!");';
